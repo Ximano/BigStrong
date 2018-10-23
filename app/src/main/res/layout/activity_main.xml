@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="recyclerView嵌套多个九宫格" />
+
+        <Button
+            android:id="@+id/btn_keywords_high_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="多个关键字高亮" />
+
+
+    </LinearLayout>
+
+</ScrollView>
