@@ -19,6 +19,6 @@
 ```
    mIntent.putExtra("demoList", (Serializable) demoList);// 第一种设置数据
 
-   DemoList demoList = List<Demo>) intent.getSerializableExtra("demoList");// 获取数据
+   DemoList demoList = (List<Demo>) intent.getSerializableExtra("demoList");// 获取数据
 ```
 ### 2. [pic-1]
