@@ -17,7 +17,7 @@
 ```
 **传递List(List中的对象须实现Serializable, 示例demoList)**
 ```
-   mIntent.putExtra("demoList", (Serializable) demoList);// 第一种设置数据
+   mIntent.putExtra("demoList", (Serializable) demoList);// 设置数据
 
    DemoList demoList = (List<Demo>) intent.getSerializableExtra("demoList");// 获取数据
 ```
