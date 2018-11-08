@@ -6,19 +6,19 @@
 - COMMON USAGE
 
 **传递Object(对象须实现Serializable, 示例demoObject)**
-```
-   mIntent.putExtra("demoObject", demoObject);// 第一种设置数据
 
-   Bundle bundle = new Bundle();// 第二种设置数据
-   bundle.putSerializable("demoObject", demoObject);
-   mIntent.putExtras(bundle);
+    mIntent.putExtra("demoObject", demoObject);// 第一种设置数据
 
-   DemoObject demoObject = (DemoObject) getIntent().getSerializableExtra("demoObject");// 获取数据
-```
+    Bundle bundle = new Bundle();// 第二种设置数据
+    bundle.putSerializable("demoObject", demoObject);
+    mIntent.putExtras(bundle);
+
+    DemoObject demoObject = (DemoObject) getIntent().getSerializableExtra("demoObject");// 获取数据
+
 **传递List(List中的对象须实现Serializable, 示例demoList)**
-```
-   mIntent.putExtra("demoList", (Serializable) demoList);// 设置数据
 
-   DemoList demoList = (List<Demo>) intent.getSerializableExtra("demoList");// 获取数据
-```
+    mIntent.putExtra("demoList", (Serializable) demoList);// 设置数据
+
+    DemoList demoList = (List<Demo>) intent.getSerializableExtra("demoList");// 获取数据
+
 ### 2. [pic-1]
