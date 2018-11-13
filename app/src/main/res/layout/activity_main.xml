@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/content_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bv_home_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:background="@color/white"
+        app:itemTextColor="@drawable/txt_home_bottom_nav_selector"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_home_bottom_nav" />
 
-        <Button
-            android:id="@+id/btn_grid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="recyclerView嵌套多个九宫格" />
+</LinearLayout>
 
-        <Button
-            android:id="@+id/btn_keywords_high_light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="多个关键字高亮" />
-
-
-    </LinearLayout>
-
-</ScrollView>

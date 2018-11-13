@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">米粒Demo</string>
+    <string name="home_nav_index">首页</string>
+    <string name="home_nav_found">发现</string>
+    <string name="home_nav_message">消息</string>
+    <string name="home_nav_me">我的</string>
 </resources>
