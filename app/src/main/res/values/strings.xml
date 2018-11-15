@@ -1,7 +1,14 @@
 <resources>
-    <string name="app_name">米粒Demo</string>
+    <string name="app_name">SVIP</string>
     <string name="home_nav_index">首页</string>
     <string name="home_nav_found">发现</string>
     <string name="home_nav_message">消息</string>
     <string name="home_nav_me">我的</string>
+    <string name="drawer">抽屉</string>
+    <string name="hotlines">热线</string>
+    <string name="about_us">关于</string>
+    <string name="setting">设置</string>
+    <string name="love">靓妹</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
 </resources>

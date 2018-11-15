@@ -6,15 +6,17 @@ import com.mili.base.BaseFragment;
 /**
  * Created by TeeMo111 on 2018/11/14.
  */
-public class HomeFragment extends BaseFragment {
+public class MineFragment extends BaseFragment {
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_mine;
     }
 
     @Override
     public void initView() {
-
+        if (isAdded() && getArguments() != null) {
+            String value = getArguments().getString("key");
+        }
     }
 
     @Override

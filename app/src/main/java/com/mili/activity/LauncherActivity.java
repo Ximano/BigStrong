@@ -29,14 +29,12 @@ public class LauncherActivity extends BaseActivity implements Animation.Animatio
     private static final int ANIM_TIME = 1000;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_launcher);
-        ButterKnife.bind(this);
-        initView();
+    protected int getLayoutId() {
+        return R.layout.activity_launcher;
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
         //初始化动画
         initStartAnim();
         //设置状态栏和导航栏参数
@@ -45,6 +43,11 @@ public class LauncherActivity extends BaseActivity implements Animation.Animatio
                 .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)//隐藏状态栏
                 .transparentNavigationBar()//透明导航栏，不写默认黑色(设置此方法，fullScreen()方法自动为true)
                 .init();
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     /**

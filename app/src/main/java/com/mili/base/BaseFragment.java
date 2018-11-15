@@ -10,13 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Created by TeeMo111 on 2018/11/14.
  */
 public abstract class BaseFragment extends Fragment {
-    protected Context context;
     protected Activity activity;
     private View mRootView;
+    private Unbinder mButterKnife;
 
     @Override
     public void onAttach(Context context) {
@@ -29,6 +32,7 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         mRootView = inflater.inflate(getLayoutId(), null);
+        mButterKnife = ButterKnife.bind(this, mRootView);
         return mRootView;
     }
 
@@ -48,10 +52,16 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 初始化控件
      */
-    public abstract View initView();
+    public abstract void initView();
 
     /**
      * 初始化数据
      */
     public abstract void initData();
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mButterKnife.unbind();
+    }
 }

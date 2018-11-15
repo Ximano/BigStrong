@@ -6,10 +6,10 @@ import com.mili.base.BaseFragment;
 /**
  * Created by TeeMo111 on 2018/11/14.
  */
-public class HomeFragment extends BaseFragment {
+public class FoundFragment extends BaseFragment {
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_found;
     }
 
     @Override

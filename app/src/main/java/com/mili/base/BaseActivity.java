@@ -12,23 +12,47 @@ import android.view.WindowManager;
 import com.gyf.barlibrary.ImmersionBar;
 import com.mili.R;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper;
 
 /**
  * Created by TeeMo111 on 2018/11/13.
  */
-public class BaseActivity extends AppCompatActivity implements ViewTreeObserver.OnGlobalLayoutListener, BGASwipeBackHelper.Delegate {
+public abstract class BaseActivity extends AppCompatActivity implements ViewTreeObserver.OnGlobalLayoutListener, BGASwipeBackHelper.Delegate {
     private ImmersionBar mImmersionBar;
     private BGASwipeBackHelper mSwipeBackHelper;
+    private Unbinder mButterKnife;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         // 在 super.onCreate(savedInstanceState) 之前调用该方法
         initSwipeBackFinish();
         super.onCreate(savedInstanceState);
+        setContentView(getLayoutId());
+        // 绑定黄油刀
+        mButterKnife = ButterKnife.bind(this);
         // 初始化沉浸式状态栏
         statusBarConfig().init();
+        initView();
+        initData();
     }
+
+    /**
+     * 引入布局
+     */
+    protected abstract int getLayoutId();
+
+    /**
+     * 初始化控件
+     */
+    protected abstract void initView();
+
+    /**
+     * 初始化数据
+     */
+    protected abstract void initData();
+
     /**
      * 初始化滑动返回。在 super.onCreate(savedInstanceState) 之前调用该方法
      */
@@ -59,7 +83,7 @@ public class BaseActivity extends AppCompatActivity implements ViewTreeObserver.
     /**
      * 跳转到其他Activity
      *
-     * @param cls       目标Activity的Class
+     * @param cls 目标Activity的Class
      */
     public void startActivity(Class<? extends Activity> cls) {
         startActivity(new Intent(this, cls));
@@ -87,7 +111,8 @@ public class BaseActivity extends AppCompatActivity implements ViewTreeObserver.
     }
 
     @Override
-    public void onGlobalLayout() {} //不用写任何方法
+    public void onGlobalLayout() {
+    } //不用写任何方法
 
     /**
      * {@link BGASwipeBackHelper.Delegate}
@@ -145,5 +170,7 @@ public class BaseActivity extends AppCompatActivity implements ViewTreeObserver.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             getWindow().getDecorView().getViewTreeObserver().removeOnGlobalLayoutListener(this);
         }
+        if (mButterKnife != null)
+            mButterKnife.unbind();
     }
 }
