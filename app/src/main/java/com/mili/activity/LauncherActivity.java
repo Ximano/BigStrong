@@ -1,7 +1,5 @@
 package com.mili.activity;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
@@ -14,7 +12,6 @@ import com.mili.R;
 import com.mili.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by TeeMo111 on 2018/11/13.
@@ -32,6 +29,9 @@ public class LauncherActivity extends BaseActivity implements Animation.Animatio
     protected int getLayoutId() {
         return R.layout.activity_launcher;
     }
+
+    @Override
+    protected void initToolbar() {}
 
     @Override
     protected void initView() {

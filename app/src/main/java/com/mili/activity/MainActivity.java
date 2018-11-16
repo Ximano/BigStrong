@@ -7,13 +7,21 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hjq.toast.ToastUtils;
 import com.mili.R;
 import com.mili.base.BaseActivity;
@@ -21,23 +29,29 @@ import com.mili.fragment.FoundFragment;
 import com.mili.fragment.HomeFragment;
 import com.mili.fragment.MessageFragment;
 import com.mili.fragment.MineFragment;
+import com.mili.utils.StatusBarUtil;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.content_fragment)
     FrameLayout mFragment;
+    @BindView(R.id.common_toolbar)
+    Toolbar mToolbar;
     @BindView(R.id.bv_home_navigation)
     BottomNavigationView mBottomNavigationView;
     @BindView(R.id.nav_view)
     NavigationView mDrawerLayoutNavigationView;
+    @BindView(R.id.common_toolbar_title_tv)
+    TextView mTitleTv;
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
     private HomeFragment mHomeFragment;
     private FoundFragment mFoundFragment;
     private MessageFragment mMessageFragment;
     private MineFragment mMineFragment;
+    private ActionBarDrawerToggle mToggle;
+    private ImageView mSweetHeartView;
 
     @Override
     protected int getLayoutId() {
@@ -45,11 +59,24 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     }
 
     @Override
+    protected void initToolbar() {
+        setSupportActionBar(mToolbar);
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayShowTitleEnabled(false);
+        mTitleTv.setText(getString(R.string.home_pager));
+        // 设置状态栏颜色
+//        getStatusBarConfig().statusBarColorInt(ContextCompat.getColor(this, R.color.text_high_light), 1f);
+        StatusBarUtil.setStatusColor(getWindow(), ContextCompat.getColor(this, R.color.main_status_bar_red), 1f);
+        mToolbar.setNavigationOnClickListener(v -> onToggleSupport());
+    }
+
+    @Override
     protected void initView() {
-        initBottomNavigationView();
         initFragments();
         initDrawerLayoutNavigationView();
         initDrawerLayout();
+        initBottomNavigationView();
     }
 
     @Override
@@ -58,10 +85,12 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     }
 
     private void initDrawerLayout() {
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        mToggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
+                // 加上super(), 有菜单按钮--->箭头的国度动画
+                super.onDrawerSlide(drawerView, slideOffset);
                 //获取mDrawerLayout中的第一个子布局，也就是布局中的RelativeLayout
                 //获取抽屉的view
                 View mContent = mDrawerLayout.getChildAt(0);
@@ -85,11 +114,13 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 mContent.setScaleY(endScale);
             }
         };
-        toggle.syncState();
-        mDrawerLayout.addDrawerListener(toggle);
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
     }
 
     private void initDrawerLayoutNavigationView() {
+        mSweetHeartView = mDrawerLayoutNavigationView.getHeaderView(0).findViewById(R.id.iv_sweet_heart);
+//        Glide.with(MainActivity.this).load(R.mipmap.sweetHeart).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(mSweetHeartView);
         Menu menu = mDrawerLayoutNavigationView.getMenu();
         menu.findItem(R.id.nav_item_wan_android).setOnMenuItemClickListener(item -> {
             ToastUtils.show(item.getTitle());
@@ -195,5 +226,23 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 return true;
         }
         return false;
+    }
+
+    private void onToggleSupport() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            mDrawerLayout.openDrawer(GravityCompat.START);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+
     }
 }

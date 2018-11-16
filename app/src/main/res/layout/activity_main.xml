@@ -8,9 +8,19 @@
     tools:openDrawer="start">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="false"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:elevation="@dimen/dp_0">
+
+            <include layout="@layout/common_toolbar" />
+        </android.support.design.widget.AppBarLayout>
 
         <FrameLayout
             android:id="@+id/content_fragment"

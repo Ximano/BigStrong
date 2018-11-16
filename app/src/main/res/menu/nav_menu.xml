@@ -2,27 +2,34 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:id="@+id/other">
-        <item android:id="@+id/nav_item_wan_android"
-            android:icon="@drawable/ic_nav_vip"
-            android:title="@string/app_name"
+        <item
+            android:id="@+id/nav_item_wan_android"
             android:checkable="true"
-            android:checked="true" />
+            android:checked="true"
+            android:icon="@drawable/ic_nav_vip"
+            android:title="@string/app_name" />
 
-        <item android:id="@+id/nav_item_my_collect"
+        <item
+            android:id="@+id/nav_item_my_collect"
+            android:checkable="true"
             android:icon="@drawable/ic_nav_love"
-            android:title="@string/love"
-            android:checkable="true" />
+            android:title="@string/love" />
 
-        <item android:id="@+id/nav_item_setting"
+        <item
+            android:id="@+id/nav_item_setting"
+            android:checkable="true"
             android:icon="@drawable/ic_nav_setup"
-            android:title="@string/setting"
-            android:checkable="true" />
+            android:title="@string/setting" />
 
-        <item android:id="@+id/nav_item_logout"
+        <item
+            android:id="@+id/nav_item_logout"
+            android:checkable="true"
             android:icon="@drawable/ic_nav_hotline"
             android:title="@string/hotlines" />
 
-        <item android:id="@+id/nav_item_about_us"
+        <item
+            android:id="@+id/nav_item_about_us"
+            android:checkable="true"
             android:icon="@drawable/ic_nav_about"
             android:title="@string/about_us" />
     </group>

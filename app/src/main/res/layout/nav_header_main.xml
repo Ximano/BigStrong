@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_200"
-    android:background="@mipmap/bg_launcher"
+    android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
     android:gravity="center"
-    android:orientation="vertical"
-    android:paddingTop="@dimen/dp_16"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/bg_nav_width" />
+
+    <ImageView
+        android:id="@+id/iv_sweet_heart"
         android:layout_width="@dimen/dp_95"
         android:layout_height="@dimen/dp_95"
-        android:layout_gravity="center"
+        android:layout_centerInParent="true"
         android:contentDescription="@null"
-        android:src="@mipmap/ic_logo" />
+        android:scaleType="fitXY"
+        android:src="@mipmap/mm_sweet_heart_gif" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/nav_header_login_tv"
         android:layout_width="wrap_content"
+        android:layout_below="@+id/iv_sweet_heart"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/drawer"
-        android:textSize="@dimen/sp_20"
-        android:textColor="@color/white" />
-</LinearLayout>
+        android:layout_marginTop="15dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_20" />
+</RelativeLayout>

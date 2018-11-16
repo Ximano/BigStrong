@@ -51,4 +51,6 @@ dependencies {
     implementation 'com.hjq:titlebar:3.2'
     // 吐司工具类：https://github.com/getActivity/ToastUtils
     implementation 'com.hjq:toast:2.5'
+    implementation 'com.github.bumptech.glide:glide:4.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
 }

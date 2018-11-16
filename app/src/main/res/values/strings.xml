@@ -11,4 +11,5 @@
     <string name="love">靓妹</string>
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
+    <string name="home_pager">首页</string>
 </resources>
