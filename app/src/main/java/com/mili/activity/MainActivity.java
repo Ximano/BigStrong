@@ -1,5 +1,6 @@
 package com.mili.activity;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -32,6 +33,8 @@ import com.mili.fragment.MineFragment;
 import com.mili.utils.StatusBarUtil;
 
 import butterknife.BindView;
+import de.hdodenhof.circleimageview.CircleImageView;
+import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.content_fragment)
@@ -51,7 +54,10 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     private MessageFragment mMessageFragment;
     private MineFragment mMineFragment;
     private ActionBarDrawerToggle mToggle;
-    private ImageView mSweetHeartView;
+    private GifImageView mPandaGif;
+    private CircleImageView mPandaAnim;
+    private ImageView mPandaGlide;
+    private AnimationDrawable animationDrawable;
 
     @Override
     protected int getLayoutId() {
@@ -64,7 +70,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayShowTitleEnabled(false);
-        mTitleTv.setText(getString(R.string.home_pager));
+        mTitleTv.setText(getString(R.string.home_nav_index));
         // 设置状态栏颜色
 //        getStatusBarConfig().statusBarColorInt(ContextCompat.getColor(this, R.color.text_high_light), 1f);
         StatusBarUtil.setStatusColor(getWindow(), ContextCompat.getColor(this, R.color.main_status_bar_red), 1f);
@@ -119,8 +125,16 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     }
 
     private void initDrawerLayoutNavigationView() {
-        mSweetHeartView = mDrawerLayoutNavigationView.getHeaderView(0).findViewById(R.id.iv_sweet_heart);
-//        Glide.with(MainActivity.this).load(R.mipmap.sweetHeart).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(mSweetHeartView);
+        // 1. 使用GifImageView
+        mPandaGif = mDrawerLayoutNavigationView.getHeaderView(0).findViewById(R.id.giv_panda_gif);
+        // 2. 使用加载drawable中的animation-list(帧动画)
+        mPandaAnim = mDrawerLayoutNavigationView.getHeaderView(0).findViewById(R.id.iv_panda_anim);
+        animationDrawable = (AnimationDrawable) getResources().getDrawable(R.drawable.anim_frame);
+        mPandaAnim.setBackground(animationDrawable);
+        animationDrawable.start();
+        // 3. 使用glide加载本地或网络gif图片
+        mPandaGlide = mDrawerLayoutNavigationView.getHeaderView(0).findViewById(R.id.iv_panda_glide);
+        Glide.with(this).asGif().load(R.drawable.mm_sweet_heart_gif).into(mPandaGlide);
         Menu menu = mDrawerLayoutNavigationView.getMenu();
         menu.findItem(R.id.nav_item_wan_android).setOnMenuItemClickListener(item -> {
             ToastUtils.show(item.getTitle());
@@ -160,7 +174,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         mMineFragment.setArguments(mBundle);
 
         // 展示默认Fragment
-        changeFragment(mHomeFragment, true);
+        changeFragment(getString(R.string.home_nav_index), mHomeFragment, true);
     }
 
     private void initBottomNavigationView() {
@@ -173,10 +187,12 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     /**
      * 控制切换Fragment
      *
+     * @param title
      * @param fragment
      * @param isInit
      */
-    private void changeFragment(Fragment fragment, boolean isInit) {
+    private void changeFragment(String title, Fragment fragment, boolean isInit) {
+        mTitleTv.setText(title);
         if (fragment == null) {
             return;
         }
@@ -213,19 +229,40 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_home:
-                changeFragment(mHomeFragment, false);
+                changeFragment(getString(R.string.home_nav_index), mHomeFragment, false);
                 return true;
             case R.id.home_found:
-                changeFragment(mFoundFragment, false);
+                changeFragment(getString(R.string.home_nav_found), mFoundFragment, false);
                 return true;
             case R.id.home_message:
-                changeFragment(mMessageFragment, false);
+                changeFragment(getString(R.string.home_nav_message), mMessageFragment, false);
                 return true;
             case R.id.home_me:
-                changeFragment(mMineFragment, false);
+                changeFragment(getString(R.string.home_nav_me), mMineFragment, false);
                 return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_usage:
+
+                break;
+            case R.id.action_search:
+
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onToggleSupport() {
@@ -243,6 +280,11 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         } else {
             super.onBackPressed();
         }
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        animationDrawable.stop();
     }
 }

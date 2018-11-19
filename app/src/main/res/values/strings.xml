@@ -11,5 +11,7 @@
     <string name="love">靓妹</string>
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
-    <string name="home_pager">首页</string>
+
+    <string name="useful_sites">自定义View</string>
+    <string name="action_search">搜索</string>
 </resources>

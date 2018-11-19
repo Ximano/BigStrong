@@ -15,23 +15,39 @@
         android:scaleType="fitXY"
         android:src="@mipmap/bg_nav_width" />
 
-    <ImageView
-        android:id="@+id/iv_sweet_heart"
+    <!-- 1. 加载本地gif图片控件 -->
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/giv_panda_gif"
         android:layout_width="@dimen/dp_95"
         android:layout_height="@dimen/dp_95"
         android:layout_centerInParent="true"
-        android:contentDescription="@null"
-        android:scaleType="fitXY"
-        android:src="@mipmap/mm_sweet_heart_gif" />
+        android:src="@drawable/mm_sweet_heart_gif"
+        android:visibility="gone" />
+
+    <!-- 2. 使用frame anim动画的方式加载animation-list -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_panda_anim"
+        android:layout_width="@dimen/dp_95"
+        android:layout_height="@dimen/dp_95"
+        android:layout_centerInParent="true" />
+    <!-- android:src="@drawable/anim_frame" -->
+
+    <!-- 3. 使用glide加载本地或者网络gif图片 -->
+    <ImageView
+        android:id="@+id/iv_panda_glide"
+        android:layout_width="@dimen/dp_95"
+        android:layout_height="@dimen/dp_95"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
 
     <TextView
-        android:visibility="gone"
         android:id="@+id/nav_header_login_tv"
         android:layout_width="wrap_content"
-        android:layout_below="@+id/iv_sweet_heart"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/giv_panda_gif"
         android:layout_marginTop="15dp"
         android:text="@string/app_name"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_20" />
+        android:textSize="@dimen/sp_20"
+        android:visibility="gone" />
 </RelativeLayout>
