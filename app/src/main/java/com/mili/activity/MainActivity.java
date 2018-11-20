@@ -30,6 +30,7 @@ import com.mili.fragment.FoundFragment;
 import com.mili.fragment.HomeFragment;
 import com.mili.fragment.MessageFragment;
 import com.mili.fragment.MineFragment;
+import com.mili.fragment.UsageDialogFragment;
 import com.mili.utils.StatusBarUtil;
 
 import butterknife.BindView;
@@ -58,6 +59,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     private CircleImageView mPandaAnim;
     private ImageView mPandaGlide;
     private AnimationDrawable animationDrawable;
+    private UsageDialogFragment usageDialogFragment;
 
     @Override
     protected int getLayoutId() {
@@ -254,7 +256,13 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_usage:
-
+                if (usageDialogFragment == null) {
+                    usageDialogFragment = new UsageDialogFragment();
+                }
+                if (!isDestroyed() && usageDialogFragment.isAdded()) {
+                    usageDialogFragment.dismiss();
+                }
+                usageDialogFragment.show(getSupportFragmentManager(), "UsageDialogFragment");
                 break;
             case R.id.action_search:
 

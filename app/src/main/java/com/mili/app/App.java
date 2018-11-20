@@ -12,10 +12,12 @@ import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper;
  * desc   : 项目中的Activity基类
  */
 public class App extends Application {
+    private static App instance;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         /**
          * 必须在 Application 的 onCreate 方法中执行 BGASwipeBackHelper.init 来初始化滑动返回
          * 第一个参数：应用程序上下文
@@ -24,5 +26,9 @@ public class App extends Application {
         BGASwipeBackHelper.init(this, null);
         // 初始化吐司工具类
         ToastUtils.init(getApplicationContext());
+    }
+
+    public static synchronized App getInstance() {
+        return instance;
     }
 }

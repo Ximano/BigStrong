@@ -56,4 +56,8 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'
     // 原型ImageView
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+    // 流失布局
+    implementation "com.hyman:flowlayout-lib:1.1.2"
+    // 日志类
+    implementation "com.orhanobut:logger:2.1.1"
 }
