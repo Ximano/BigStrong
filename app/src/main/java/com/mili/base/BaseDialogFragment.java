@@ -1,5 +1,7 @@
 package com.mili.base;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -28,17 +30,6 @@ public abstract class BaseDialogFragment extends DialogFragment {
         return mRootView;
     }
 
-    @Override
-    public void show(FragmentManager manager, String tag) {
-        try {
-            //防止连续点击add多个fragment
-            manager.beginTransaction().remove(this).commit();
-            super.show(manager, tag);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     /**
      * 获取当前dialogFragment的UI布局
      *
@@ -50,6 +41,17 @@ public abstract class BaseDialogFragment extends DialogFragment {
      * 初始化事件和数据
      */
     protected abstract void initEventAndData();
+
+    @Override
+    public void show(FragmentManager manager, String tag) {
+        try {
+            //防止连续点击add多个fragment
+            manager.beginTransaction().remove(this).commit();
+            super.show(manager, tag);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void onDestroyView() {

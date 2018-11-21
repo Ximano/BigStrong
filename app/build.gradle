@@ -50,7 +50,9 @@ dependencies {
     // 吐司工具类：https://github.com/getActivity/ToastUtils
     implementation 'com.hjq:toast:2.5'
     // glide图片加载框架
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation ('com.github.bumptech.glide:glide:4.8.0'){
+        exclude group: "com.android.support"
+    }
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     // git图片展示View
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'

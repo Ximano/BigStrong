@@ -31,7 +31,12 @@ import com.mili.fragment.HomeFragment;
 import com.mili.fragment.MessageFragment;
 import com.mili.fragment.MineFragment;
 import com.mili.fragment.UsageDialogFragment;
+import com.mili.gilde.GlideApp;
+import com.mili.utils.LogHelper;
+import com.mili.utils.LogUtils;
 import com.mili.utils.StatusBarUtil;
+
+import java.util.logging.Logger;
 
 import butterknife.BindView;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -67,6 +72,10 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     }
 
     @Override
+    protected void fetchExtra() {
+    }
+
+    @Override
     protected void initToolbar() {
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -76,7 +85,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         // 设置状态栏颜色
 //        getStatusBarConfig().statusBarColorInt(ContextCompat.getColor(this, R.color.text_high_light), 1f);
         StatusBarUtil.setStatusColor(getWindow(), ContextCompat.getColor(this, R.color.main_status_bar_red), 1f);
-        mToolbar.setNavigationOnClickListener(v -> onToggleSupport());
+        this.mToolbar.setNavigationOnClickListener(v -> onToggleSupport());
     }
 
     @Override
@@ -89,7 +98,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
     @Override
     protected void initData() {
-
     }
 
     private void initDrawerLayout() {
@@ -285,8 +293,15 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
-        } else {
+            LogUtils.d("isDrawerOpen: " + mDrawerLayout.isDrawerOpen(GravityCompat.START));
+        } /*else if (usageDialogFragment != null
+                && usageDialogFragment.getDialog() != null
+                && usageDialogFragment.getDialog().isShowing()) {
+            usageDialogFragment.hide();
+            LogUtils.d("usageDialogFragment.getDialog().isShowing(): " + usageDialogFragment.getDialog().isShowing());
+        } */ else {
             super.onBackPressed();
+            LogUtils.d("super.onBackPressed()");
         }
     }
 

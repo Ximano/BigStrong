@@ -23,7 +23,7 @@ public class Constants {
      * Tab titles
      */
     public static final String[] TAB_TITLES = new String[]{
-            "Android",
+            "富文本",
             "iOS",
             "Java",
             "PHP",

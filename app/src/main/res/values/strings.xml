@@ -12,6 +12,6 @@
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
 
-    <string name="useful_sites">自定义View</string>
+    <string name="useful_sites">Useful View</string>
     <string name="action_search">搜索</string>
 </resources>

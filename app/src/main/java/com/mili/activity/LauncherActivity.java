@@ -31,7 +31,12 @@ public class LauncherActivity extends BaseActivity implements Animation.Animatio
     }
 
     @Override
-    protected void initToolbar() {}
+    protected void fetchExtra() {
+    }
+
+    @Override
+    protected void initToolbar() {
+    }
 
     @Override
     protected void initView() {

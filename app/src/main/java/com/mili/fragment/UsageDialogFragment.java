@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -17,9 +18,11 @@ import android.widget.TextView;
 
 import com.hjq.toast.ToastUtils;
 import com.mili.R;
+import com.mili.activity.RichTextViewActivity;
 import com.mili.anim.CircularRevealAnim;
 import com.mili.app.Constants;
 import com.mili.base.BaseDialogFragment;
+import com.mili.utils.JudgeUtils;
 import com.mili.utils.Utils;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
@@ -60,6 +63,7 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
     protected void initEventAndData() {
         initCircleAnimation();
         initToolbar();
+        // 设置流式数据
         mUsefulSitesFlowLayout.setAdapter(new TagAdapter<String>(Constants.TAB_TITLES) {
             @Override
             public View getView(FlowLayout parent, int position, String label) {
@@ -70,11 +74,33 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
                 tv.setText(label);
                 setItemBackground(tv);
                 mUsefulSitesFlowLayout.setOnTagClickListener((view, position1, parent1) -> {
-                    ToastUtils.show(Constants.TAB_TITLES[position1]);
+                    switch (position1) {
+                        case 0:
+                            JudgeUtils.label2Activity(getActivity(), RichTextViewActivity.class, position1);
+                            break;
+
+                        case 1:
+
+                            break;
+
+                        default:
+                            ToastUtils.show(Constants.TAB_TITLES[position1]);
+                            break;
+                    }
                     return true;
                 });
                 return tv;
             }
+        });
+        // 监听show时的返回键
+        getDialog().setOnKeyListener((dialog, keyCode, event) -> {
+            if (keyCode == KeyEvent.KEYCODE_BACK) {
+                if (getDialog() != null && getDialog().isShowing()) {
+                    hide();
+                }
+                return true;
+            }
+            return false;
         });
     }
 
@@ -133,5 +159,13 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
         mTitleView.getViewTreeObserver().removeOnPreDrawListener(this);
         mCircularRevealAnim.show(mTitleView, mRootView);
         return true;
+    }
+
+    /**
+     * 动画隐藏当前dialogFragment
+     */
+    public void hide() {
+        if (mCircularRevealAnim != null && mTitleView != null && mRootView != null)
+            mCircularRevealAnim.hide(mTitleView, mRootView);
     }
 }

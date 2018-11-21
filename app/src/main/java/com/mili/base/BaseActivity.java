@@ -34,13 +34,21 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewTree
         mButterKnife = ButterKnife.bind(this);
         // 初始化沉浸式状态栏
         statusBarConfig().init();
-        // 初始化toolbar
 
+        fetchExtra();
         initToolbar();
         initView();
         initData();
     }
 
+    /**
+     * 获取Extra或者bundle
+     */
+    protected abstract void fetchExtra();
+
+    /**
+     * 初始化标题栏
+     */
     protected abstract void initToolbar();
 
     /**
