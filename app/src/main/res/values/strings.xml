@@ -14,4 +14,6 @@
 
     <string name="useful_sites">Useful View</string>
     <string name="action_search">搜索</string>
+    <string name="text_expand">您的信用非常珍贵，请务必准时还款，如逾期还款将对您的信用产生影响，个人不良信用将会记入央行征信黑名单，黑名单将会被限制：坐飞机，坐轮船，做火车，住宿；且不能贷款买房，不能买车</string>
+    <string name="text_high_light">达令是谁, 达令是darling</string>
 </resources>

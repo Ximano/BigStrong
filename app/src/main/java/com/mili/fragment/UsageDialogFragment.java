@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.hjq.toast.ToastUtils;
 import com.mili.R;
 import com.mili.activity.RichTextViewActivity;
+import com.mili.activity.SortGridViewActivity;
 import com.mili.anim.CircularRevealAnim;
 import com.mili.app.Constants;
 import com.mili.base.BaseDialogFragment;
@@ -80,7 +81,7 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
                             break;
 
                         case 1:
-
+                            JudgeUtils.label2Activity(getActivity(), SortGridViewActivity.class, position1);
                             break;
 
                         default:

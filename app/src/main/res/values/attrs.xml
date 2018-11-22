@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 自定义EllipsizeTextView -->
+    <declare-styleable name="EllipsizeTextView">
+        <attr name="ell_more_text" format="string" />
+        <attr name="ell_less_text" format="string" />
+        <attr name="ell_more_color" format="color|reference" />
+        <attr name="ell_less_color" format="color|reference" />
+    </declare-styleable>
+</resources>

@@ -24,7 +24,7 @@ public class Constants {
      */
     public static final String[] TAB_TITLES = new String[]{
             "富文本",
-            "iOS",
+            "菜单分类",
             "Java",
             "PHP",
             "Swift",

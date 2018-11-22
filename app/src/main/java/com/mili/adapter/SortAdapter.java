@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.mili.R;
 import com.mili.base.BaseRecyclerAdapter;
 import com.mili.divider.GridDividerItemDecoration;
+import com.mili.gilde.GlideApp;
 import com.mili.model.Sort;
 
 import java.util.List;
@@ -40,7 +41,7 @@ public class SortAdapter extends BaseRecyclerAdapter<Sort> {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         SortHolder itemHolder = (SortHolder) holder;
         itemHolder.tvTitle.setText(list.get(position).getName());
-        Glide.with(context)
+        GlideApp.with(context)
                 .load(list.get(position).getIcon())
                 .into(itemHolder.ivIcon);
         itemHolder.recyclerView.setLayoutManager(new GridLayoutManager(context, 4));

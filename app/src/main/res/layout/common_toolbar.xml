@@ -7,7 +7,7 @@
     android:layout_height="@dimen/dp_54"
     android:background="@drawable/shape_linear_gradient"
     app:layout_scrollFlags="scroll|enterAlways"
-    app:navigationIcon="@mipmap/ic_arrow_back">
+    app:navigationIcon="@drawable/ic_arrow_back_white_24dp">
 
     <TextView
         android:id="@+id/common_toolbar_title_tv"

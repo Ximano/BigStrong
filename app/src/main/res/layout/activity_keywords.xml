@@ -22,6 +22,19 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="15dp"
-        android:text="我是文本" />
+        android:text="我是关键字高亮" />
+
+    <com.mili.widget.EllipsizeTextView
+        android:id="@+id/etv_expand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="我是文本的展开和收起"
+        android:textColorHighlight="#00000000"
+        app:ell_more_color="@color/red"
+        app:ell_more_text="全部" />
 
 </LinearLayout>
