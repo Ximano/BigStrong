@@ -31,10 +31,18 @@ public class Utils {
     }
 
     /**
+     * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+     */
+    public static int px2dp(float pxValue) {
+        final float scale = App.getInstance().getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
+
+    /**
      * Show message
      *
      * @param activity Activity
-     * @param msg message
+     * @param msg      message
      */
     public static void showMessage(Activity activity, String msg) {
         LogHelper.e("showMessage ：" + msg);
@@ -45,7 +53,7 @@ public class Utils {
      * Show message
      *
      * @param activity Activity
-     * @param msg message
+     * @param msg      message
      */
     public static void showSnackMessage(Activity activity, String msg) {
         LogHelper.e("showSnackMessage ：" + msg);
@@ -126,13 +134,13 @@ public class Utils {
     public static int randomColor() {
         Random random = new Random();
         //0-190, 如果颜色值过大,就越接近白色,就看不清了,所以需要限定范围
-        int red =random.nextInt(150);
+        int red = random.nextInt(150);
         //0-190
-        int green =random.nextInt(150);
+        int green = random.nextInt(150);
         //0-190
-        int blue =random.nextInt(150);
+        int blue = random.nextInt(150);
         //使用rgb混合生成一种新的颜色,Color.rgb生成的是一个int数
-        return Color.rgb(red,green, blue);
+        return Color.rgb(red, green, blue);
     }
 
     public static int randomTagColor() {
@@ -148,7 +156,7 @@ public class Utils {
      * 泛型转换工具方法 eg:object ==> map<String, String>
      *
      * @param object Object
-     * @param <T> 转换得到的泛型对象
+     * @param <T>    转换得到的泛型对象
      * @return T
      */
     @SuppressWarnings("unchecked")

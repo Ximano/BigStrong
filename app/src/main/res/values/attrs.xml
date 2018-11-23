@@ -7,4 +7,12 @@
         <attr name="ell_more_color" format="color|reference" />
         <attr name="ell_less_color" format="color|reference" />
     </declare-styleable>
+    <!-- 自定义可设置图片大小的ImageTextView -->
+    <declare-styleable name="ImageTextView">
+        <attr name="drawable" format="reference" />
+        <attr name="drawableWidth" format="dimension" />
+        <attr name="drawableHeight" format="dimension" />
+        <attr name="position" format="integer" />
+    </declare-styleable>
+
 </resources>
