@@ -22,11 +22,25 @@
             <include layout="@layout/common_toolbar" />
         </android.support.design.widget.AppBarLayout>
 
-        <FrameLayout
-            android:id="@+id/content_fragment"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:id="@+id/content_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.mili.widget.DragFloatActionButton
+                android:id="@+id/float_button"
+                android:layout_width="@dimen/dp_35"
+                android:layout_height="@dimen/dp_35"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_online_service3" />
+        </RelativeLayout>
+
 
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/bv_home_navigation"

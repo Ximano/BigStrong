@@ -22,7 +22,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hjq.toast.ToastUtils;
 import com.mili.R;
 import com.mili.base.BaseActivity;
@@ -31,14 +30,13 @@ import com.mili.fragment.HomeFragment;
 import com.mili.fragment.MessageFragment;
 import com.mili.fragment.MineFragment;
 import com.mili.fragment.UsageDialogFragment;
-import com.mili.gilde.GlideApp;
-import com.mili.utils.LogHelper;
 import com.mili.utils.LogUtils;
 import com.mili.utils.StatusBarUtil;
-
-import java.util.logging.Logger;
+import com.mili.widget.DragFloatActionButton;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 import pl.droidsonroids.gif.GifImageView;
 
@@ -55,6 +53,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     TextView mTitleTv;
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
+    @BindView(R.id.float_button)
+    DragFloatActionButton mFloatButton;
     private HomeFragment mHomeFragment;
     private FoundFragment mFoundFragment;
     private MessageFragment mMessageFragment;
@@ -94,6 +94,17 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         initDrawerLayoutNavigationView();
         initDrawerLayout();
         initBottomNavigationView();
+    }
+
+    @OnClick({R.id.float_button})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.float_button:
+                LogUtils.d("float_button: ACTION_DOWN");
+                ToastUtils.show("我是客服小妹");
+                break;
+        }
+
     }
 
     @Override

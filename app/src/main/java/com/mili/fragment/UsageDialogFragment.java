@@ -124,12 +124,13 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
     private void initDialog() {
         Window window = getDialog().getWindow();
         DisplayMetrics metrics = getResources().getDisplayMetrics();
-        //DialogSearch的宽
+        // DialogSearch的宽
         int width = (int) (metrics.widthPixels * 0.98);
+        // int width = (metrics.widthPixels);
         assert window != null;
         window.setLayout(width, WindowManager.LayoutParams.MATCH_PARENT);
         window.setGravity(Gravity.TOP);
-        //取消过渡动画 , 使DialogSearch的出现更加平滑
+        // 取消过渡动画 , 使DialogSearch的出现更加平滑
         window.setWindowAnimations(R.style.DialogEmptyAnimation);
     }
 
