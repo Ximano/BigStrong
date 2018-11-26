@@ -1,7 +1,6 @@
 package com.mili.adapter;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.mili.R;
 import com.mili.base.BaseRecyclerAdapter;
 import com.mili.divider.GridDividerItemDecoration;
-import com.mili.gilde.GlideApp;
 import com.mili.model.Sort;
 
 import java.util.List;
@@ -24,9 +21,9 @@ public class SortAdapter extends BaseRecyclerAdapter<Sort> {
     private GridDividerItemDecoration divider;
 
     public SortAdapter(Activity context, List<Sort> list) {
-        this.context = context;
+        this.activity = context;
         this.list = list;
-        divider = new GridDividerItemDecoration(2, Color.parseColor("#333333"));
+        divider = new GridDividerItemDecoration(2, context.getResources().getColor(R.color.border_grid_view));
     }
 
     @NonNull
@@ -41,10 +38,11 @@ public class SortAdapter extends BaseRecyclerAdapter<Sort> {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         SortHolder itemHolder = (SortHolder) holder;
         itemHolder.tvTitle.setText(list.get(position).getName());
-        GlideApp.with(context)
+        /*GlideApp.with(activity)
                 .load(list.get(position).getIcon())
-                .into(itemHolder.ivIcon);
-        itemHolder.recyclerView.setLayoutManager(new GridLayoutManager(context, 4));
+                .error(R.mipmap.ic_sort)
+                .into(itemHolder.ivIcon);*/
+        itemHolder.recyclerView.setLayoutManager(new GridLayoutManager(activity, 5));
         itemHolder.recyclerView.setHasFixedSize(true);
         itemHolder.recyclerView.setNestedScrollingEnabled(false);
 
@@ -53,7 +51,7 @@ public class SortAdapter extends BaseRecyclerAdapter<Sort> {
         }
         List<Sort.SortItem> subSort = list.get(position).getSub();
         if (subSort != null) {
-            SortItemAdapter adapter = new SortItemAdapter(context, subSort);
+            SortItemAdapter adapter = new SortItemAdapter(activity, subSort);
             itemHolder.recyclerView.setAdapter(adapter);
         }
     }

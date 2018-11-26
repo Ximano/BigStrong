@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:orientation="vertical"
     android:paddingLeft="15dp"
     android:paddingRight="15dp">
@@ -15,10 +16,10 @@
 
         <ImageView
             android:id="@+id/title_img"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/dp_23"
+            android:layout_height="@dimen/dp_23"
             android:layout_gravity="center_vertical"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_sort" />
 
         <TextView
             android:id="@+id/title_text"
@@ -31,13 +32,14 @@
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
+        android:background="@color/white"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         app:layoutManager="android.support.v7.widget.GridLayoutManager"
-        app:spanCount="4"
-        tools:listitem="@layout/layout_gride_item" />
+        app:spanCount="5"
+        tools:listitem="@layout/layout_grid_item" />
 
 
 </LinearLayout>

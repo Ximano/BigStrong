@@ -61,5 +61,5 @@ dependencies {
     // 流失布局
     implementation "com.hyman:flowlayout-lib:1.1.2"
     // 日志类
-    implementation "com.orhanobut:logger:2.1.1"
+    implementation "com.orhanobut:logger:2.2.0"
 }

@@ -16,14 +16,14 @@ import java.util.List;
 
 class SortItemAdapter extends BaseRecyclerAdapter<Sort.SortItem> {
     public SortItemAdapter(Activity context, List<Sort.SortItem> list) {
-        this.context = context;
+        this.activity = context;
         this.list = list;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_gride_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_grid_item, parent, false);
         RecyclerView.ViewHolder holder = new SortItemHolder(view);
         return holder;
     }
@@ -31,7 +31,11 @@ class SortItemAdapter extends BaseRecyclerAdapter<Sort.SortItem> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         SortItemHolder itemHolder = (SortItemHolder) holder;
-        itemHolder.tvItem.setText(list.get(position).getName());
+        String name = list.get(position).getName();
+        if (name.length() > 3) {
+            name = name.substring(0, 3);
+        }
+        itemHolder.tvItem.setText(name);
     }
 
     @Override
@@ -44,7 +48,7 @@ class SortItemAdapter extends BaseRecyclerAdapter<Sort.SortItem> {
 
         public SortItemHolder(View itemView) {
             super(itemView);
-            tvItem = itemView.findViewById(R.id.tv_gride_item);
+            tvItem = itemView.findViewById(R.id.tv_grid_item);
         }
     }
 }

@@ -50,7 +50,7 @@
                 android:padding="10dp"
                 android:text="我是文本的展开和收起"
                 android:textColorHighlight="#00000000"
-                android:textSize="16sp"
+                android:textSize="@dimen/sp_14"
                 app:ell_more_color="@color/red"
                 app:ell_more_text="全部" />
 
@@ -62,7 +62,7 @@
                 android:padding="10dp"
                 android:text="富文本之可改变drawable图片大小的TextView"
                 android:textColor="#333"
-                android:textSize="16sp"
+                android:textSize="@dimen/sp_14"
                 app:drawable="@mipmap/ic_qq"
                 app:drawableHeight="@dimen/dp_10"
                 app:drawableWidth="@dimen/dp_10"

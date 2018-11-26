@@ -1,6 +1,7 @@
 package com.mili.base;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
 import com.mili.utils.LogUtils;
@@ -13,14 +14,16 @@ import java.util.List;
  */
 
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    protected Activity context;
+    protected Activity activity;
+    protected Context context;
     protected List<T> list = new ArrayList<>();
 
     public BaseRecyclerAdapter() {
     }
 
-    public BaseRecyclerAdapter(Activity context) {
-        this.context = context;
+    public BaseRecyclerAdapter(Activity activity) {
+        this.activity = activity;
+        this.context = activity;
     }
 
     /**
