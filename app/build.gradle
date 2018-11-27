@@ -62,4 +62,6 @@ dependencies {
     implementation "com.hyman:flowlayout-lib:1.1.2"
     // 日志类
     implementation "com.orhanobut:logger:2.2.0"
+    // 联动城市选择器
+    implementation 'com.github.addappcn:android-pickers:1.0.3'
 }

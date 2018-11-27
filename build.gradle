@@ -18,6 +18,8 @@ buildscript {
 
 allprojects {
     repositories {
+        // android-pickers必须添加这行
+        maven { url "https://jitpack.io" }
         mavenCentral()
         google()
         jcenter()

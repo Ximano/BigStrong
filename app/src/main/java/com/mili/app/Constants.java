@@ -23,9 +23,9 @@ public class Constants {
      * Tab titles
      */
     public static final String[] TAB_TITLES = new String[]{
-            "富文本",
-            "方形九宫格",
-            "Java",
+            "Rich Text",
+            "Grid View",
+            "City Picker",
             "PHP",
             "Swift",
             "Object-C",

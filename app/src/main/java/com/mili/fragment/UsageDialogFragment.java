@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.hjq.toast.ToastUtils;
 import com.mili.R;
+import com.mili.activity.CityPickerActivity;
 import com.mili.activity.RichTextViewActivity;
 import com.mili.activity.SortGridViewActivity;
 import com.mili.anim.CircularRevealAnim;
@@ -82,6 +83,10 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
 
                         case 1:
                             JudgeUtils.label2Activity(getActivity(), SortGridViewActivity.class, position1);
+                            break;
+
+                        case 2:
+                            JudgeUtils.label2Activity(getActivity(), CityPickerActivity.class, position1);
                             break;
 
                         default:

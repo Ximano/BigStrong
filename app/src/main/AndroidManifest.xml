@@ -28,6 +28,7 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.RichTextViewActivity" />
         <activity android:name=".activity.SortGridViewActivity" />
+        <activity android:name=".activity.CityPickerActivity" />
     </application>
 
 </manifest>
