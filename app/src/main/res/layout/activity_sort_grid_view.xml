@@ -2,25 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:activity=".activity.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="false"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:elevation="@dimen/dp_0">
+        android:layout_height="match_parent">
 
-        <include layout="@layout/common_toolbar" />
-    </android.support.design.widget.AppBarLayout>
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="false"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:elevation="@dimen/dp_0">
 
-    <android.support.v7.widget.RecyclerView
-        android:background="@color/white"
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+            <include layout="@layout/common_toolbar" />
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/main_floating_action_btn"
+            style="@style/style_float_btn"
+            android:layout_marginBottom="@dimen/dp_60"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:src="@mipmap/ic_up_rocket"
+            app:layout_behavior="@string/scale_down_show_behavior" />
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom_navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            app:elevation="@dimen/dp_16"
+            app:itemTextColor="@drawable/txt_home_bottom_nav_selector"
+            app:layout_behavior="@string/bye_burger_bottom_behavior"
+            app:menu="@menu/menu_home_bottom_nav" />
+        <!-- app:layout_behavior="@string/bye_burger_bottom_behavior" -->
+    </android.support.design.widget.CoordinatorLayout>
 
 </LinearLayout>

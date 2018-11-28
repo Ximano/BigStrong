@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 边框颜色值 -->
+    <item>
+        <shape>
+            <solid android:color="@color/border_grid_view" />
+            <!-- 边框底部两个角都是有弧度的 -->
+            <corners
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp" />
+        </shape>
+    </item>
+
+    <item
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp"> <!--左边、右边、上边有边框-->
+        <shape>
+            <corners
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp" />
+            <solid android:color="@color/white" />
+            <padding
+                android:bottom="0dp"
+                android:left="1dp"
+                android:right="1dp"
+                android:top="0dp" /> <!-- 控制边框的显示 -->
+        </shape>
+    </item>
+</layer-list>

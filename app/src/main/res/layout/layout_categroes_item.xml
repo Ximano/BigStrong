@@ -32,11 +32,11 @@
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:background="@color/white"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
+        android:background="@drawable/bg_grid_view_border"
         app:layoutManager="android.support.v7.widget.GridLayoutManager"
         app:spanCount="5"
         tools:listitem="@layout/layout_grid_item" />
