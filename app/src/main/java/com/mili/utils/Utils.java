@@ -143,6 +143,10 @@ public class Utils {
         return Color.rgb(red, green, blue);
     }
 
+    /**
+     * 获取指定数组中的随机色
+     * @return
+     */
     public static int randomTagColor() {
         int randomNum = new Random().nextInt();
         int position = randomNum % Constants.TAB_COLORS.length;
@@ -150,6 +154,19 @@ public class Utils {
             position = -position;
         }
         return Constants.TAB_COLORS[position];
+    }
+
+    /**
+     * 获取指定数组中的随机drawable
+     * @return
+     */
+    public static int randomTagDrawable() {
+        int randomNum = new Random().nextInt();
+        int position = randomNum % Constants.TAB_DRAWABLES.length;
+        if (position < 0) {
+            position = -position;
+        }
+        return Constants.TAB_DRAWABLES[position];
     }
 
     /**

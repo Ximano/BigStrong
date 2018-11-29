@@ -2,6 +2,8 @@ package com.mili.app;
 
 import android.graphics.Color;
 
+import com.mili.R;
+
 /**
  * Created by TeeMo111 on 2018/11/20.
  */
@@ -17,6 +19,19 @@ public class Constants {
             Color.parseColor("#E78F8F"),
             Color.parseColor("#67CCB7"),
             Color.parseColor("#F6BC7E")
+    };
+
+    /**
+     * Tab colors
+     */
+    public static final int[] TAB_DRAWABLES = new int[]{
+            R.drawable.item_selector1,
+            R.drawable.item_selector2,
+            R.drawable.item_selector3,
+            R.drawable.item_selector4,
+            R.drawable.item_selector5,
+            R.drawable.item_selector6,
+            R.drawable.item_selector7,
     };
 
     /**

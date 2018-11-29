@@ -116,7 +116,7 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
      * @param tv
      */
     private void setItemBackground(TextView tv) {
-        tv.setBackgroundColor(Utils.randomTagColor());
+        tv.setBackgroundResource(Utils.randomTagDrawable());
         tv.setTextColor(ContextCompat.getColor(getActivity(), R.color.white));
     }
 

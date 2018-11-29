@@ -66,6 +66,8 @@ dependencies {
     implementation 'com.github.addappcn:android-pickers:1.0.3'
     // behavior库
     implementation "com.github.githubwing:ByeBurger:1.2.3"
+    // citypicker库
+    implementation project(':citypicker')
 }
 
 configurations.all {

@@ -13,7 +13,8 @@
     <color name="toolbar_end_bg">#fc455d</color>
     <color name="main_status_bar_red">#fc455d</color>
 
-    <color name="comment_line">#dddddd</color>
+    <!-- 分割线的颜色 -->
+    <color name="colorLine">#dddddd</color>
     <color name="transparent">#00000000</color>
 
     <color name="while_most_color">#e4e4e4</color>
@@ -21,4 +22,26 @@
     <color name="title_black">#000000</color>
     <color name="red">#ff0000</color>
     <color name="border_grid_view">#F0F0F0</color>
+    <!-- button不可用状态 -->
+    <color name="colorButtonDisable">#DDDDDD</color>
+    <!-- button默认状态 -->
+    <color name="colorButtonDefault">#ff7688</color>
+    <!-- button按压状态 -->
+    <color name="colorButtonPressed">#fc455d</color>
+
+    <!-- Label随机色 -->
+    <color name="label_color1">#90C5F0</color>
+    <color name="label_color188">#8890C5F0</color>
+    <color name="label_color2">#91CED5</color>
+    <color name="label_color288">#8891CED5</color>
+    <color name="label_color3">#F88F55</color>
+    <color name="label_color388">#88F88F55</color>
+    <color name="label_color4">#C0AFD0</color>
+    <color name="label_color488">#88C0AFD0</color>
+    <color name="label_color5">#E78F8F</color>
+    <color name="label_color588">#88E78F8F</color>
+    <color name="label_color6">#67CCB7</color>
+    <color name="label_color688">#8867CCB7</color>
+    <color name="label_color7">#F6BC7E</color>
+    <color name="label_color788">#88F6BC7E</color>
 </resources>
