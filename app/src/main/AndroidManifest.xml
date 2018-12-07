@@ -33,6 +33,7 @@
         <activity android:name=".activity.RichTextViewActivity" />
         <activity android:name=".activity.SortGridViewActivity" />
         <activity android:name=".activity.CityPickerActivity" />
+        <activity android:name=".activity.KotlinActivity" />
     </application>
 
 </manifest>

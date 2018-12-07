@@ -1,5 +1,6 @@
 package com.mili.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import com.hjq.toast.ToastUtils;
 import com.mili.R;
 import com.mili.activity.CityPickerActivity;
+import com.mili.activity.KotlinActivity;
 import com.mili.activity.RichTextViewActivity;
 import com.mili.activity.SortGridViewActivity;
 import com.mili.anim.CircularRevealAnim;
@@ -87,6 +89,11 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
 
                         case 2:
                             JudgeUtils.label2Activity(getActivity(), CityPickerActivity.class, position1);
+                            break;
+
+                        case 3:
+                            JudgeUtils.label2Activity(getActivity(), KotlinActivity.class, position1);
+//                            getActivity().startActivity(new Intent(getActivity(), KotlinActivity::class.java));
                             break;
 
                         default:

@@ -8,6 +8,8 @@ import com.mili.R;
  * Created by TeeMo111 on 2018/11/20.
  */
 public class Constants {
+    // Logcat中日志过滤tag
+    public static final String TAG = "TAG";
     /**
      * Tab colors
      */
@@ -41,7 +43,7 @@ public class Constants {
             "Rich Text",
             "Grid View",
             "City Picker",
-            "PHP",
+            "Kotlin",
             "Swift",
             "Object-C",
             "C",
