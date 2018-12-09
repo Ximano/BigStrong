@@ -1,6 +1,7 @@
 package com.mili.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -25,7 +26,7 @@ class KotlinActivity : AppCompatActivity(), LoginViewModel.ViewModelListener {
     override fun onCodeSuccess() {
         // 验证码发送成功, 显示验证码输入框
         Logcat.e(TAG, "onCodeSuccess --> editCode visible")
-        editMobile.setCursorVisible(true)
+        editMobile.visibility = View.VISIBLE
     }
 
     override fun onLoginSuccess() {
@@ -62,8 +63,8 @@ class KotlinActivity : AppCompatActivity(), LoginViewModel.ViewModelListener {
         viewModel.smsCode.observe(this, Observer {
             if (it.length == 4) {
                 Logcat.e(TAG, "requestSmsCode --> start")
+                viewModel.requestSmsCode()
             }
         })
-
     }
 }
