@@ -93,9 +93,6 @@ dependencies {
     // behavior库
     implementation 'com.github.githubwing:ByeBurger:1.2.3'
 
-    // citypicker库
-    implementation project(':citypicker')
-
     //==========================================新加=================================================
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
@@ -122,7 +119,7 @@ dependencies {
     // 数字输入框
     implementation 'com.github.liuguangli:VerificationCodeInput:1.3'
 
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+//    implementation 'androidx.appcompat:appcompat:1.0.0'
 }
 
 configurations.all {
