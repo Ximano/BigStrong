@@ -2,12 +2,12 @@ package com.mili.base;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-
 import com.mili.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by TeeMo111 on 2018/8/21.

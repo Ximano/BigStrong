@@ -1,6 +1,6 @@
 package com.mili.viewmodel
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.lazy.library.logging.Logcat
 import com.mili.base.BaseViewModel
 import com.mili.net.APIService

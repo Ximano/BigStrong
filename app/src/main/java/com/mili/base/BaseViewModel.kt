@@ -1,6 +1,6 @@
 package com.mili.base
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.hjq.toast.ToastUtils
 import com.lazy.library.logging.Logcat
 import com.mili.app.Constants.TAG

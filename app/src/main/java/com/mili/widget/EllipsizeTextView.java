@@ -2,8 +2,6 @@ package com.mili.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatTextView;
 import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -15,6 +13,9 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.mili.R;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 
 /**
  * Created by Gss on 2018/1/10 0010.

@@ -1,9 +1,9 @@
 package com.mili.utils;
 
-import android.app.Activity;
 import android.content.Intent;
-
 import com.mili.app.Constants;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 /**
  * @author quchao
@@ -17,7 +17,7 @@ public class JudgeUtils {
      * @param position 标题在数组中的position
      * @param cls   目标Activity的Class
      */
-    public static void label2Activity(Activity activity, Class<? extends Activity> cls, int position) {
+    public static void label2Activity(FragmentActivity activity, Class<? extends FragmentActivity> cls, int position) {
         activity.startActivity(new Intent(activity, cls).putExtra("label", Constants.TAB_TITLES[position]));
     }
 }
