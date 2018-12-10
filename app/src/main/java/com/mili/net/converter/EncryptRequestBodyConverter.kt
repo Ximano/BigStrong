@@ -2,10 +2,10 @@ package com.mili.net.converter
 
 import com.google.gson.Gson
 import com.google.gson.TypeAdapter
-import com.mili.net.utils.EncryptionUtil
 import com.lazy.library.logging.Logcat
-import com.mili.net.AccessToken
+import com.mili.app.AccessToken
 import com.mili.net.bean.UploadRequest
+import com.mili.net.utils.EncryptionUtil
 import okhttp3.FormBody
 import okhttp3.MediaType
 import okhttp3.MultipartBody

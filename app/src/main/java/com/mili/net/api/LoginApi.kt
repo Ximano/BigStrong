@@ -1,8 +1,7 @@
 package com.mili.net.api
 
 import com.mili.net.apibody.APIData
-import com.mili.net.bean.LoginCodeRequest
-import com.mili.net.bean.RegisterCodeRequest
+import com.mili.net.bean.*
 import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -19,6 +18,15 @@ interface LoginApi {
     @POST("smscode/logincode")
     fun loginCode(@Body body: LoginCodeRequest): Observable<APIData<Int>>
 
+    // 发送注册的验证码
     @POST("smscode/regcode")
     fun registerCode(@Body body: RegisterCodeRequest): Observable<APIData<Int>>
+
+    // 登录
+    @POST("/login")
+    fun login(@Body body: LoginRequest): Observable<APIData<LoginResponse>>
+
+    // 注册
+    @POST("/register")
+    fun register(@Body body: LoginRequest): Observable<APIData<LoginResponse>>
 }

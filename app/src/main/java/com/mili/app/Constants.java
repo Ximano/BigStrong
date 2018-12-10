@@ -10,6 +10,10 @@ import com.mili.R;
 public class Constants {
     // Logcat中日志过滤tag
     public static final String TAG = "TAG";
+
+    // app ACCESS_TOKEN
+    public static final String ACCESS_TOKEN = "TAG";
+    // app REFRESH_TOKEN
     /**
      * Tab colors
      */

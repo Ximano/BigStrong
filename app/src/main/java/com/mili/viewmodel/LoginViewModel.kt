@@ -1,11 +1,17 @@
 package com.mili.viewmodel
 
+import android.os.Build
 import androidx.lifecycle.MutableLiveData
 import com.lazy.library.logging.Logcat
+import com.mili.BuildConfig
+import com.mili.app.AccessToken
+import com.mili.app.Constants.TAG
+import com.mili.app.RefreshToken
 import com.mili.base.BaseViewModel
 import com.mili.net.APIService
 import com.mili.net.api.LoginApi
 import com.mili.net.bean.LoginCodeRequest
+import com.mili.net.bean.LoginRequest
 import com.mili.net.bean.RegisterCodeRequest
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -26,7 +32,7 @@ class LoginViewModel : BaseViewModel() {
 
     // 定义一个监听的接口 v中持有
     var listener: ViewModelListener? = null
-
+    // 标识是否已经登录
     private var isLogin = false
 
     interface ViewModelListener {
@@ -48,17 +54,14 @@ class LoginViewModel : BaseViewModel() {
     fun requestSmsCode() {
         // 加载样式
         showLoading()
-        // 模拟手机号
-//        smsCode.value = "17788664516"
         // 短信验证码取得请求
-        smsCode.value?.run {
+        mobile.value?.run {
             Observable.just(apiLogin)
                     .subscribeOn(Schedulers.io())
                     .flatMap {
                         apiLogin.isMobileExist(LoginCodeRequest(this.toLong()))
                     }
                     .flatMap {
-                        Logcat.d("isMobileExist --> ")
                         if (it.data.exist == 1) {
                             isLogin = true
                             apiLogin.loginCode(LoginCodeRequest(this.toLong()))
@@ -71,17 +74,58 @@ class LoginViewModel : BaseViewModel() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnNext {
                         if (isLogin) {
-                            Logcat.d("loginCode --> ")
+                            Logcat.d(TAG, "loginCode --> ")
                         } else {
-                            Logcat.d("registerCode --> ")
+                            Logcat.d(TAG, "registerCode --> ")
                         }
-                        if (it.data.toString().length == 1)
+                        if (BuildConfig.DEBUG)
                             smsCode.value = it.data.toString()
                     }
                     .subscribeBy(
                             onComplete = { listener?.onCodeSuccess() },
                             onError = {
                                 hideLoading()
+                                error(it)
+                            }
+                    )
+        }
+    }
+
+    /**
+     * 1. 判断 用户是登录/注册
+     * 2. 登录：调用登录接口
+     * 3. 注册：调用注册接口
+     */
+    fun requestLogin(pushId: String) {
+        showLoading()
+        smsCode.value?.run {
+            Observable.just(apiLogin)
+                    .subscribeOn(Schedulers.io())
+                    .flatMap {
+                        if (isLogin) {
+                            return@flatMap apiLogin.login(LoginRequest(mobile.value!!.toLong(), this, pushId))
+//                            apiLogin.login(LoginRequest(mobile.value!!.toLong(), this, pushId))
+                        } else {
+                            return@flatMap apiLogin.register(LoginRequest(mobile.value!!.toLong(), this, pushId))
+//                            apiLogin.register(LoginRequest(mobile.value!!.toLong(), this, pushId))
+                        }
+                    }
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnNext {
+                        AccessToken = it.data.token.access_token
+                        RefreshToken = it.data.token.refresh_token
+                    }
+                    .subscribeBy(
+                            onComplete = {
+                                listener?.run {
+                                    if (isLogin) {
+                                        onLoginSuccess()
+                                    } else {
+                                        onRegisterSuccess()
+                                    }
+                                }
+                            },
+                            onError = {
                                 error(it)
                             }
                     )

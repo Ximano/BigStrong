@@ -7,7 +7,9 @@ import com.mili.net.apibody.APIResponseBody
 import com.mili.net.exceptions.ErrorException
 import com.mili.net.utils.EncryptionUtil
 import com.lazy.library.logging.Logcat
+import com.mili.app.Constants.TAG
 import com.mili.net.utils.ERROR_CODE_SIGNATURE_INVAILIED
+import com.mili.utils.Utils
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Converter
@@ -30,8 +32,9 @@ class EncryptResponseBodyConverter<T>(private val type: Type, private val gson: 
                 //val result = typeAdapter.fromJson(data.data)
                 //gson.fromJson<APIData<Int>>(data.data, APIData<Integer>::class.java)
                 Logcat.d()
-                        .tag(type.toString()).ln()
-                        .msg(data.data)
+//                        .tag(type.toString()).ln()
+                        .tag(TAG).ln()
+                        .msg(Utils.logDecode2CN(data.data))
                         .out()
                 return result
             } else {

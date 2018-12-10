@@ -6,4 +6,3 @@ package com.mili.net
 // 接口地址 -- offline
 const val API_URL = "http://appface.tiefans.co/"
 
-var AccessToken: String? = null
