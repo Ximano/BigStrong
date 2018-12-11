@@ -3,8 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 android {
+    // 编译sdk版本(必要的)
     compileSdkVersion 28
+    // 构建工具版本(必要的)
     buildToolsVersion '28.0.3'
+    // 默认配置，对于所有的打包项目
     defaultConfig {
         applicationId "com.mili"
         minSdkVersion 21
@@ -13,6 +16,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    // buildTypes：构建类型(一般是release和debug，还可以自定义)
     buildTypes {
         release {
             minifyEnabled false
@@ -23,15 +27,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    // 编译可选项参数
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    // Data Binding可选项参数
     dataBinding {
         enabled true
     }
-
+    // Kotlin扩展插件
     androidExtensions {
         experimental = true
     }
@@ -121,6 +126,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.fragment:fragment:1.0.0'
+    // kotlin工具类
+//    implementation 'com.lxj:androidktx:latest release'
 
 }
 

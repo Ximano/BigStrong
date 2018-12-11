@@ -17,6 +17,11 @@
         <!-- ActionMode的颜色 -->
         <item name="actionModeBackground">@color/colorPrimary</item>
     </style>
+    <!-- 解决启动页白屏的问题 -->
+    <style name="LauncherTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 
     <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         &lt;!&ndash; Customize your theme here. &ndash;&gt;
@@ -47,12 +52,6 @@
         <item name="android:layout_height">@dimen/dp_54</item>
         <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
         <item name="android:elevation">2dp</item>
-    </style>
-
-    <!-- 解决启动页白屏的问题 -->
-    <style name="LauncherTheme" parent="AppTheme">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
