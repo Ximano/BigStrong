@@ -1,5 +1,8 @@
 package com.mili.activity;
 
+import android.content.Intent;
+import android.os.Handler;
+import android.text.TextUtils;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
@@ -52,7 +55,10 @@ public class LauncherActivity extends BaseActivity implements Animation.Animatio
 
     @Override
     protected void initData() {
+        new Handler().postDelayed(() -> startActivity(new Intent(LauncherActivity.this, MainActivity.class)), 2000);
+        if(TextUtils.isEmpty("")) {
 
+        }
     }
 
     /**
