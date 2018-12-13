@@ -6,7 +6,10 @@ buildscript {
         google()
         mavenCentral()
         jcenter()
-    }
+//        maven { url 'https://maven.aliyun.com/repository/google' }
+//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'
+        }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
         // butterknife需要的额外配置
@@ -27,7 +30,10 @@ allprojects {
         maven { url "https://jitpack.io" }
         mavenCentral()
         jcenter()
-    }
+//        maven { url 'https://maven.aliyun.com/repository/google' }
+//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'
+        }
 }
 
 task clean(type: Delete) {

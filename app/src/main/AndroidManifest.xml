@@ -31,7 +31,9 @@
         </activity>
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.RichTextViewActivity" />
-        <activity android:name=".activity.SortGridViewActivity" />
+        <!-- 暂时解决FloatingActionButton报错 -->
+        <activity
+            android:name=".activity.SortGridViewActivity" />
         <activity android:name=".activity.CityPickerActivity" />
         <activity android:name=".activity.KotlinActivity" />
     </application>

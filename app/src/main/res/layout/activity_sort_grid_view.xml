@@ -29,7 +29,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/main_floating_action_btn"
             style="@style/style_float_btn"
             android:layout_marginBottom="@dimen/dp_60"

@@ -9,6 +9,7 @@ import android.view.WindowManager;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.mili.R;
+import com.mili.activity.MainActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -136,7 +137,9 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewTree
      */
     @Override
     public boolean isSupportSwipeBack() {
-        return false;
+        if (this instanceof MainActivity)
+            return false;
+        return true;
     }
 
     /**
