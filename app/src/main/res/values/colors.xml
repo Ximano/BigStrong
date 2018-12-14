@@ -9,6 +9,7 @@
     <color name="white">#FFFFFF</color>
     <color name="drawer_item_bg_n">#fffff9</color>
     <color name="drawer_item_bg_p">#e8e8e8</color>
+    <color name="drawer_nav_bg">#88FFFFFF</color>
     <color name="toolbar_start_bg">#ff7688</color>
     <color name="toolbar_end_bg">#fc455d</color>
     <color name="main_status_bar_red">#fc455d</color>

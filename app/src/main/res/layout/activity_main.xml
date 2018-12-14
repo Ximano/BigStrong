@@ -57,25 +57,26 @@
         android:id="@+id/nav_view_left"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:layout_marginRight="-64dp"
+        android:layout_gravity="end"
+        android:layout_marginLeft="-14dp"
         android:background="@color/drawer_item_bg_n"
         android:fitsSystemWindows="false"
         app:headerLayout="@layout/nav_header_main"
         app:itemBackground="@drawable/drawer_item_bg"
         app:menu="@menu/nav_menu" />
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view_right"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:layout_marginLeft="-64dp"
-        android:background="@color/drawer_item_bg_n"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:itemBackground="@drawable/drawer_item_bg"
-        app:menu="@menu/nav_menu" />
+    <!--<com.google.android.material.navigation.NavigationView-->
+        <!--android:id="@+id/nav_view_right"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="start"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_marginLeft="-64dp"-->
+        <!--android:background="@color/drawer_nav_bg"-->
+        <!--android:fitsSystemWindows="true"-->
+        <!--app:headerLayout="@layout/nav_header_main"-->
+        <!--app:itemBackground="@drawable/drawer_item_bg"-->
+        <!--app:menu="@menu/nav_menu" />-->
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

@@ -29,13 +29,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
+        <activity
+            android:name=".activity.MainActivity"/>
         <activity android:name=".activity.RichTextViewActivity" />
         <!-- 暂时解决FloatingActionButton报错 -->
-        <activity
-            android:name=".activity.SortGridViewActivity" />
+        <activity android:name=".activity.SortGridViewActivity" />
         <activity android:name=".activity.CityPickerActivity" />
         <activity android:name=".activity.KotlinActivity" />
+        <activity
+            android:theme="@style/MainTheme"
+            android:name=".activity.TransAnimActivity" />
     </application>
 
 </manifest>

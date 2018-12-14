@@ -9,4 +9,11 @@
         android:gravity="center"
         android:text="首页"
         android:textStyle="bold" />
+
+    <ImageView
+        android:src="@mipmap/bg_lover"
+        android:scaleType="center"
+        android:adjustViewBounds="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>

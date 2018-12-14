@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import com.gyf.barlibrary.ImmersionBar;
 import com.mili.R;
 import com.mili.activity.MainActivity;
+import com.mili.activity.TransAnimActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -137,7 +138,8 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewTree
      */
     @Override
     public boolean isSupportSwipeBack() {
-        if (this instanceof MainActivity)
+        // TransAnimActivity禁用滑动返回：避免造成全屏滑动返回的冲突
+        if (this instanceof MainActivity || this instanceof TransAnimActivity)
             return false;
         return true;
     }

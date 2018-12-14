@@ -1,6 +1,8 @@
 package com.mili.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -19,13 +21,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.hjq.toast.ToastUtils;
 import com.mili.R;
+import com.mili.app.Constants;
 import com.mili.base.BaseActivity;
 import com.mili.fragment.FoundFragment;
 import com.mili.fragment.HomeFragment;
@@ -56,7 +58,9 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     @BindView(R.id.bv_home_navigation)
     BottomNavigationView mBottomNavigationView;
     @BindView(R.id.nav_view_left)
-    NavigationView mDrawerLayoutNavigationView;
+    NavigationView mDrawerNavLeft;
+//    @BindView(R.id.nav_view_right)
+//    NavigationView mDrawerNavRight;
     @BindView(R.id.common_toolbar_title_tv)
     TextView mTitleTv;
     @BindView(R.id.drawer_layout)
@@ -124,6 +128,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     protected void initData() {
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initDrawerLayout() {
         mToggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
@@ -153,11 +158,61 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 //                mContent.setScaleX(endScale);
 //                mContent.setScaleY(endScale);
             }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+                super.onDrawerStateChanged(newState);
+            }
         };
+
+        /**
+         * DrawerLayout的侧边滑动可以通过 ==以下== 设置锁定模式来禁用
+         * 这样设置之后侧边栏弹出之后也无法使用滑动来关闭，只能通过点击空白区域来关闭侧边栏，
+         * 我们可以通过设置DrawerLayout的setDrawerListener在侧滑打开的时候取消锁定模式，侧滑关闭的时候打开锁定模式，
+         */
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         setDrawerLeftEdgeSize(this, mDrawerLayout, 0.5f);
-        setDrawerRightEdgeSize(this, mDrawerLayout, 0.5f);
+//        setDrawerRightEdgeSize(this, mDrawerLayout, 0.5f);
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
+
+        mDrawerLayout.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    //当手指按下的时候
+                    x1 = event.getX();
+                    y1 = event.getY();
+                    break;
+
+                case MotionEvent.ACTION_UP:
+                    //当手指离开的时候
+                    x2 = event.getX();
+                    y2 = event.getY();
+                    if (y1 - y2 > 50) {
+                        LogUtils.d("向上滑");
+                    } else if (y2 - y1 > 50) {
+                        LogUtils.d("向下滑");
+                    } else if (x1 - x2 > 20) {
+                        LogUtils.d("向左滑");
+                        startActivity(new Intent(this, TransAnimActivity.class).putExtra("label", "平移动画"));
+                        overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                    } else if (x2 - x1 > 50) {
+                        LogUtils.d("向右滑");
+                    }
+                    break;
+            }
+            return false;
+        });
     }
 
     /**
@@ -226,49 +281,18 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         }
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        //继承了Activity的onTouchEvent方法，直接监听点击事件
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            //当手指按下的时候
-            x1 = event.getX();
-            y1 = event.getY();
-        }
-        if (event.getAction() == MotionEvent.ACTION_UP) {
-            //当手指离开的时候
-            x2 = event.getX();
-            y2 = event.getY();
-            if (y1 - y2 > 50) {
-//                Toast.makeText(MainActivity.this, "向上滑", Toast.LENGTH_SHORT).show();
-                LogUtils.d("向上滑");
-            } else if (y2 - y1 > 50) {
-//                Toast.makeText(MainActivity.this, "向下滑", Toast.LENGTH_SHORT).show();
-                LogUtils.d("向下滑");
-            } else if (x1 - x2 > 50) {
-//                Toast.makeText(MainActivity.this, "向左滑", Toast.LENGTH_SHORT).show();
-                LogUtils.d("向左滑");
-            } else if (x2 - x1 > 50) {
-//                Toast.makeText(MainActivity.this, "向右滑", Toast.LENGTH_SHORT).show();
-                LogUtils.d("向右滑");
-            }
-        }
-//        return true;
-        return super.onTouchEvent(event);
-    }
-
-
     private void initDrawerLayoutNavigationView() {
         // 1. 使用GifImageView
-        mPandaGif = mDrawerLayoutNavigationView.getHeaderView(0).findViewById(R.id.giv_panda_gif);
+        mPandaGif = mDrawerNavLeft.getHeaderView(0).findViewById(R.id.giv_panda_gif);
         // 2. 使用加载drawable中的animation-list(帧动画)
-        mPandaAnim = mDrawerLayoutNavigationView.getHeaderView(0).findViewById(R.id.iv_panda_anim);
+        mPandaAnim = mDrawerNavLeft.getHeaderView(0).findViewById(R.id.iv_panda_anim);
         animationDrawable = (AnimationDrawable) getResources().getDrawable(R.drawable.anim_frame);
         mPandaAnim.setBackground(animationDrawable);
         animationDrawable.start();
         // 3. 使用glide加载本地或网络gif图片
-        mPandaGlide = mDrawerLayoutNavigationView.getHeaderView(0).findViewById(R.id.iv_panda_glide);
+        mPandaGlide = mDrawerNavLeft.getHeaderView(0).findViewById(R.id.iv_panda_glide);
         Glide.with(this).asGif().load(R.drawable.mm_sweet_heart_gif).into(mPandaGlide);
-        Menu menu = mDrawerLayoutNavigationView.getMenu();
+        Menu menu = mDrawerNavLeft.getMenu();
         menu.findItem(R.id.nav_item_wan_android).setOnMenuItemClickListener(item -> {
             ToastUtils.show(item.getTitle());
             return true;
@@ -405,18 +429,18 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     }
 
     private void onToggleSupport() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            mDrawerLayout.closeDrawer(GravityCompat.START);
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+            mDrawerLayout.closeDrawer(GravityCompat.END);
         } else {
-            mDrawerLayout.openDrawer(GravityCompat.START);
+            mDrawerLayout.openDrawer(GravityCompat.END);
         }
     }
 
     @Override
     public void onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            mDrawerLayout.closeDrawer(GravityCompat.START);
-            LogUtils.d("isDrawerOpen: " + mDrawerLayout.isDrawerOpen(GravityCompat.START));
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+            mDrawerLayout.closeDrawer(GravityCompat.END);
+            LogUtils.d("isDrawerOpen: " + mDrawerLayout.isDrawerOpen(GravityCompat.END));
         } /*else if (usageDialogFragment != null
                 && usageDialogFragment.getDialog() != null
                 && usageDialogFragment.getDialog().isShowing()) {
