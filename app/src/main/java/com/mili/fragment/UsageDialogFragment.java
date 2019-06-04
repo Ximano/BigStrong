@@ -22,6 +22,7 @@ import com.mili.R;
 import com.mili.activity.CityPickerActivity;
 import com.mili.activity.KotlinActivity;
 import com.mili.activity.RichTextViewActivity;
+import com.mili.activity.RxActivity;
 import com.mili.activity.SortGridViewActivity;
 import com.mili.anim.CircularRevealAnim;
 import com.mili.app.Constants;
@@ -93,6 +94,11 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
 
                         case 3:
                             JudgeUtils.label2Activity(getActivity(), KotlinActivity.class, position1);
+//                            getActivity().startActivity(new Intent(getActivity(), KotlinActivity::class.java));
+                            break;
+
+                        case 4:
+                            JudgeUtils.label2Activity(getActivity(), RxActivity.class, position1);
 //                            getActivity().startActivity(new Intent(getActivity(), KotlinActivity::class.java));
                             break;
 

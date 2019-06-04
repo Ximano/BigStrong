@@ -27,6 +27,11 @@ public class Sort implements Serializable {
     private String updated_at;
     private List<SortItem> sub;
 
+    public Sort(String name, int status) {
+        this.name = name;
+        this.status = status;
+    }
+
     public String getCreated_at() {
         return created_at;
     }

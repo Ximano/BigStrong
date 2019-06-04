@@ -36,6 +36,7 @@
             android:name=".activity.SortGridViewActivity" />
         <activity android:name=".activity.CityPickerActivity" />
         <activity android:name=".activity.KotlinActivity" />
+        <activity android:name=".activity.RxActivity" />
     </application>
 
 </manifest>

@@ -44,7 +44,7 @@ public class Constants {
             "Grid View",
             "City Picker",
             "Kotlin",
-            "Swift",
+            "RxAndroid",
             "Object-C",
             "C",
             "C#",
