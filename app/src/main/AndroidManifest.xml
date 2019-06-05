@@ -37,6 +37,7 @@
         <activity android:name=".activity.CityPickerActivity" />
         <activity android:name=".activity.KotlinActivity" />
         <activity android:name=".activity.RxActivity" />
+        <activity android:name=".activity.MVPActivity" />
     </application>
 
 </manifest>
