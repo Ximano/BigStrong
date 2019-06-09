@@ -27,6 +27,7 @@ import com.mili.activity.SortGridViewActivity;
 import com.mili.anim.CircularRevealAnim;
 import com.mili.app.Constants;
 import com.mili.base.BaseDialogFragment;
+import com.mili.mvp.ui.MVPActivity;
 import com.mili.utils.JudgeUtils;
 import com.mili.utils.Utils;
 import com.zhy.view.flowlayout.FlowLayout;
@@ -100,6 +101,10 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
                         case 4:
                             JudgeUtils.label2Activity(getActivity(), RxActivity.class, position1);
 //                            getActivity().startActivity(new Intent(getActivity(), KotlinActivity::class.java));
+                            break;
+
+                        case 5:
+                            JudgeUtils.label2Activity(getActivity(), MVPActivity.class, position1);
                             break;
 
                         default:

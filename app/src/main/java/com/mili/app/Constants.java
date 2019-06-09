@@ -45,7 +45,7 @@ public class Constants {
             "City Picker",
             "Kotlin",
             "RxAndroid",
-            "Object-C",
+            "MVP",
             "C",
             "C#",
     };

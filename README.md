@@ -2,7 +2,7 @@
  - [github地址](https://github.com/Ximano/Mili-Advance)
  - [HTTPS图片](https://coupon.i-liaoning.com.cn:2300/giftcenter/logo/jifen.png)
 
- ## RxAndroid `[可参照示例代码]`
+## RxAndroid `[可参照示例代码]`
  结合的观察者模式和链式处理 
  1. Observer：观察者。订阅者 Subscriber（订阅者是对观察者的扩展）。
  事件的接受者，也就是如何处理这个事件或者数据；
@@ -24,5 +24,24 @@
 > Emitter，可以将其理解为触发器，推动整个流程的运转。
 > 
 > Scheduler，这个其实不用太过关心，RxJava用其封装了Thread，用于完成线程切换等任务。
+
 7. observeOn：指定一个观察者在那个调度器上观察这个Observable。每次调用了ObservableOn操作符之后，之后的Map和Subscribe操作符都会发生在指定的调度器中，实现了线程的切换。
 8. subscribeOn：这个Observable自身在哪个调度器上执行。SubscribeOn这个操作符，与调用的位置无关，而且只有第一次调用时会指定Observable自己在哪个调度器执行。其实有一种情况特殊，就是在DoOnSubscribe操作符之后调用，可以使DoOnSubscribe在指定的调度器中执行。
+
+## MVP
+- M：model（模型）并不一定是数据类，而是按照规则返回的数据结构，比如返回的Observable<T>，可能包含Retrofit的请求。
+- V：view（视图）并不一定是Activity，也可能是Fragment，View等。但是这些控件可能都需要实现一个IBaseView的接口，约束一个统一的规则，也便于多态中的泛型。比如统一的showLoading，dismissLoading，showError，showEmpty等。
+- P：presenter（控制器）作用就是连接MV，使数据层(网络请求，IO操作，数据库读写)，视图层view解藕。
+避免一把锁，层次更加分明。而不是把整个程序混作一团。
+
+
+
+
+
+
+
+
+
+
+
+

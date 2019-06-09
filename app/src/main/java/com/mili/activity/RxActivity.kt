@@ -22,12 +22,12 @@ import org.reactivestreams.Subscription
 class RxActivity : AppCompatActivity() {
 
     companion object {
-        private const val TAG1 = "TAG1"
-        private const val TAG2 = "TAG2"
-        private const val TAG3 = "TAG3"
-        private const val TAG4 = "TAG4"
-        private const val TAG5 = "TAG5"
-        private const val TAG6 = "TAG6"
+        private const val TAG1 = "RX1"
+        private const val TAG2 = "RX2"
+        private const val TAG3 = "RX3"
+        private const val TAG4 = "RX4"
+        private const val TAG5 = "RX5"
+        private const val TAG6 = "RX6"
     }
 
     private val compositeDisposable = CompositeDisposable()
