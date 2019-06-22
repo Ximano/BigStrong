@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 /**
  * @author: Big Strong
  * @date  : 2019-06-08
- * @desc  : Activity的基类, Activity的公共方法（包括P层个View层关联、取消关联的操作）等
+ * @desc  : Activity的基类, Activity的公共方法等
  */
 abstract class BaseMVPActivity : AppCompatActivity() {
 
@@ -21,6 +21,6 @@ abstract class BaseMVPActivity : AppCompatActivity() {
     @LayoutRes
     abstract fun getLayoutId(): Int
 
-    /***/
+    /**初始化View*/
     abstract fun initView()
 }

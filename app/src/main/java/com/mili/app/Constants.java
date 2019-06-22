@@ -46,7 +46,7 @@ public class Constants {
             "Kotlin",
             "RxAndroid",
             "MVP",
-            "C",
+            "MVVM",
             "C#",
     };
 }

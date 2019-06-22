@@ -38,6 +38,7 @@
         <activity android:name=".activity.KotlinActivity" />
         <activity android:name=".activity.RxActivity" />
         <activity android:name=".mvp.ui.MVPActivity" />
+        <activity android:name=".mvvm.MVVMActivity" />
     </application>
 
 </manifest>

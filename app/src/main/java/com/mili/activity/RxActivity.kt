@@ -14,6 +14,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import org.reactivestreams.Subscriber
 import org.reactivestreams.Subscription
+
 /**
  * @author: Big Strong
  * @date  : 2019-06-05
@@ -93,7 +94,7 @@ class RxActivity : AppCompatActivity() {
     private fun chain1() {
         Observable.just("a")
                 .map {
-                    Log.d(TAG3, "map当前线程：${Thread.currentThread().name}； 被观察者的值 ${it}")
+                    Log.d(TAG3, "map当前线程：${Thread.currentThread().name}； 被观察者的值 $it")
                     it + it
                 }
                 .subscribe(object : Observer<String> {

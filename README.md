@@ -32,8 +32,7 @@
 - M：model（模型）并不一定是数据类，而是按照规则返回的数据结构，比如返回的Observable<T>，可能包含Retrofit的请求。
 - V：view（视图）并不一定是Activity，也可能是Fragment，View等。但是这些控件可能都需要实现一个IBaseView的接口，约束一个统一的规则，也便于多态中的泛型。比如统一的showLoading，dismissLoading，showError，showEmpty等。
 - P：presenter（控制器）作用就是连接MV，使数据层(网络请求，IO操作，数据库读写)，视图层view解藕。
-避免一把梭，层次更加分明。而不是把整个程序混作一团。
-- 实现原理：P层持有V层的一个引用，View层实例化一个P层的实例，实现View层和Model层的节藕，从而实现真正的MVC即：MVP
+- 实现原理：P层持有V层的一个引用，View层实例化一个P层的实例，实现View层和Model层的节藕，从而实现真正的MVC即：MVP。请求数据格式化数据的具体实现都转移到Presenter中去操作，而Presenter中持有View（也就是Activity或者Fragment）的引用，直接调用View的方法对目标数据进行UI的展示，当然UI展示的具体实现还是在View的实例中去处理。这样做的好处就是View中只有请求数据，展示数据的动作，但是具体的实现其实是在Presenter中处理的。这样就达到了数据层Model，视图层View，控制层Presenter的分离。个人理解MVP核心就是用了，面相对象中的多肽和泛型的。或者说是一种回调的用法。避免一把梭，层次更加分明。而不是把整个程序混作一团。
 - 缺点：虽然MVP是现今比较流行的架构，但是如果业务过于复杂也会导致P层太臃肿，而且P层和V层也有一定的耦合度，如果有任何UI的地方需要改，不只需要改P层，还需要改View的接口和实现，牵一发动全身的感觉。
 
 ## MVVM + Databinding
@@ -41,7 +40,7 @@
 - V：对应Activity、Fragment和XML，负责View的绘制以及与用户的交互，与MVP中V无异；
 - VM：创建关联，将Model和View绑定起来，实现View和Model间的交互和业务逻辑，基于databinding实现双向反馈。
 - Databinding: 是一个实现数据和UI绑定的框架，它是实现MVVM模式的一个工具。由它来完成创建关联、数据绑定和自动刷新等一系列操作。MVVM中ViewModel和View进行了双向绑定，当ViewModel的数据发生变化的时候，自动的反应到View中显示，而当View对数据进行更改的时候ViewModel的数据也随之变化。
-- MVVM和MVP的思想是一致的，但是没有MVP那么多的回调，通过Databinding就可以更新UI和状态。
+- MVVM和MVP的思想是一致的，但是没有MVP那么多的回调，通过Databinding就可以更新UI和状态。MVVM架构模式下，数据和业务逻辑都处于ViewModel中，ViewModel只关心数据和业务，不需要直接和UI打交道，而Model只需要提供ViewModel的数据源，View则关心如何显示数据和处理与用户的交互。
 
 
 

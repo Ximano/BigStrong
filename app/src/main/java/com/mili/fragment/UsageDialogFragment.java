@@ -28,6 +28,7 @@ import com.mili.anim.CircularRevealAnim;
 import com.mili.app.Constants;
 import com.mili.base.BaseDialogFragment;
 import com.mili.mvp.ui.MVPActivity;
+import com.mili.mvvm.MVVMActivity;
 import com.mili.utils.JudgeUtils;
 import com.mili.utils.Utils;
 import com.zhy.view.flowlayout.FlowLayout;
@@ -105,6 +106,10 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
 
                         case 5:
                             JudgeUtils.label2Activity(getActivity(), MVPActivity.class, position1);
+                            break;
+
+                        case 6:
+                            JudgeUtils.label2Activity(getActivity(), MVVMActivity.class, position1);
                             break;
 
                         default:
