@@ -11,7 +11,7 @@ buildscript {
 //        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'
         }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         // butterknife需要的额外配置
 //         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         // 添加citypicker本地依赖额外配置
