@@ -19,6 +19,7 @@ import org.reactivestreams.Subscription
  * @author: Big Strong
  * @date  : 2019-06-05
  * @dec   : RxJava用法Debug测试
+ * @example: 各种操作符的使用：https://www.jianshu.com/p/d997805b37d4 [包含github地址]
  */
 class RxActivity : AppCompatActivity() {
 

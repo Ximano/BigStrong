@@ -43,7 +43,8 @@
 - MVVM和MVP的思想是一致的，但是没有MVP那么多的回调，通过Databinding就可以更新UI和状态。MVVM架构模式下，数据和业务逻辑都处于ViewModel中，ViewModel只关心数据和业务，不需要直接和UI打交道，而Model只需要提供ViewModel的数据源，View则关心如何显示数据和处理与用户的交互。
 
 
-
+## Android 中内存泄漏的原因
+- 生命周期较长的对象持有生命周期较短对象的引用
 
 
 

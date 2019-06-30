@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.hjq.toast.ToastUtils;
 import com.mili.R;
 import com.mili.activity.CityPickerActivity;
+import com.mili.activity.HandlerActivity;
 import com.mili.activity.KotlinActivity;
 import com.mili.activity.RichTextViewActivity;
 import com.mili.activity.RxActivity;
@@ -110,6 +111,10 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
 
                         case 6:
                             JudgeUtils.label2Activity(getActivity(), MVVMActivity.class, position1);
+                            break;
+
+                        case 7:
+                            JudgeUtils.label2Activity(getActivity(), HandlerActivity.class, position1);
                             break;
 
                         default:

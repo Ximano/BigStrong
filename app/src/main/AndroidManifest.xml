@@ -39,6 +39,7 @@
         <activity android:name=".activity.RxActivity" />
         <activity android:name=".mvp.ui.MVPActivity" />
         <activity android:name=".mvvm.MVVMActivity" />
+        <activity android:name=".activity.HandlerActivity" />
     </application>
 
 </manifest>

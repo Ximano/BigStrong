@@ -47,6 +47,6 @@ public class Constants {
             "RxAndroid",
             "MVP",
             "MVVM",
-            "C#",
+            "Handler",
     };
 }
