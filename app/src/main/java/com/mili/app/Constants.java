@@ -34,6 +34,7 @@ public class Constants {
             R.drawable.item_selector5,
             R.drawable.item_selector6,
             R.drawable.item_selector7,
+            R.drawable.item_selector1
     };
 
     /**
@@ -48,5 +49,6 @@ public class Constants {
             "MVP",
             "MVVM",
             "Handler",
+            "LifeCycle",
     };
 }

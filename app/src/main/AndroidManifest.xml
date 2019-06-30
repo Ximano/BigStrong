@@ -40,6 +40,11 @@
         <activity android:name=".mvp.ui.MVPActivity" />
         <activity android:name=".mvvm.MVVMActivity" />
         <activity android:name=".activity.HandlerActivity" />
+        <activity android:name=".activity.LifeCycleActivity" />
+        <!-- android:theme="@style/Theme.AppCompat.Dialog" -->
+        <activity
+
+            android:name=".activity.SecondActivity" />
     </application>
 
 </manifest>

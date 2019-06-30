@@ -22,6 +22,7 @@ import com.mili.R;
 import com.mili.activity.CityPickerActivity;
 import com.mili.activity.HandlerActivity;
 import com.mili.activity.KotlinActivity;
+import com.mili.activity.LifeCycleActivity;
 import com.mili.activity.RichTextViewActivity;
 import com.mili.activity.RxActivity;
 import com.mili.activity.SortGridViewActivity;
@@ -115,6 +116,10 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
 
                         case 7:
                             JudgeUtils.label2Activity(getActivity(), HandlerActivity.class, position1);
+                            break;
+
+                        case 8:
+                            JudgeUtils.label2Activity(getActivity(), LifeCycleActivity.class, position1);
                             break;
 
                         default:

@@ -8,6 +8,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 public class HandlerActivity extends AppCompatActivity {
+
+    // 非静态内部类
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+        }
+    };
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +28,19 @@ public class HandlerActivity extends AppCompatActivity {
         // 就是在消息队列中不停的取有没有下一个消息，如果有下一个消息，
         // 主线程中的Handler实例执行一个HandleMessage()方法，对消息进行处理
 
-        // TODO: 2019/6/29 在子线程中维护一个Handler机制
+        // 匿名内部类
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                // todo 如果进行一些耗时的操作，activity被finish的时候
+                handler.sendEmptyMessage(1);
+            }
+        }.start();
+
+
+
+        // 在子线程中维护一个Handler机制
         new Thread(){
             @Override
             public void run() {
