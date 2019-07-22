@@ -51,15 +51,15 @@ android {
 dependencies {
     def lifecycle_version = "2.0.0"
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1-beta01'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1-beta01'
+    androidTestImplementation 'androidx.test:runner:1.3.0-alpha02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha02'
 
     // View注入框架==>如果是用Kotlin, 须将annotationProcessor改为kapt
-    implementation 'com.jakewharton:butterknife:9.0.0-rc2'
-    kapt 'com.jakewharton:butterknife-compiler:9.0.0-rc2'
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    kapt 'com.jakewharton:butterknife-compiler:10.0.0'
     // fastJson
     implementation 'com.alibaba:fastjson:1.2.49'
 
@@ -70,16 +70,16 @@ dependencies {
     implementation 'cn.bingoogolapple:bga-swipebacklayout:1.1.9@aar'
 
     // 标题栏：https://github.com/getActivity/TitleBar
-    implementation 'com.hjq:titlebar:3.2'
+    implementation 'com.hjq:titlebar:5.0'
 
     // 吐司工具类：https://github.com/getActivity/ToastUtils
     implementation 'com.hjq:toast:2.5'
 
     // glide图片加载框架
-    implementation('com.github.bumptech.glide:glide:4.8.0') {
+    implementation('com.github.bumptech.glide:glide:4.9.0') {
         exclude group: "com.android.support"
     }
-    kapt 'com.github.bumptech.glide:compiler:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
 
     // git图片展示View
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'
@@ -111,7 +111,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
     // ViewModel和LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
@@ -123,7 +123,7 @@ dependencies {
     implementation 'com.github.liuguangli:VerificationCodeInput:1.3'
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.fragment:fragment:1.0.0'
     // kotlin工具类
