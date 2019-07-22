@@ -56,6 +56,4 @@ class SecondActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
-
 }

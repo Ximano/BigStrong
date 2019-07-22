@@ -97,6 +97,24 @@ Looper.prepare()方法中，Looper对象个MessageQueue对象已经被创建了�
 场景：
 - 1. A创建并且打开B：onCreate_A -> onStart_A -> onResume_A -> onPause_A -> onCreate_B -> onStart_B -> onResume_B -> onStop_A
      B再关闭：onPause_B -> onRestart_A -> onStart_A -> onResume_A -> onStop_B -> onDestroy_B
+     
+     
+## 自定义View
+- 1. 自制控件：继承自View或者ViewGroup，自己绘制；
+ - onMessure()测量，onLayout()摆放，onDraw()摆放，分别是由messure()(是一个final类型的方法)，layout()可以重写，draw()
+ 可以重写。
+ - View的measure()方法是对自身的测量，从而去调用onMessure()方法。而ViewGroup()的measure除了完成对自身的测量外，还要遍历去调用子View的measure()，个个子元素再去递归调用自身的measure()。如果是View，layout指定自己的位置，如果是ViewGroup()的话，onLayout()就是指定son.layout()的位置。draw的话大概就是：绘制背景backgroupDraw(canvas)，绘制自己onDraw()，绘制孩子dispatchDraw()，绘制装饰onDrawScrollBars()，我们主要关心就是onDraw()。
+ - 如果是View的话，一般就是onDraw()和onLayout()，onMessure()。如果是ViewGroup()的话，onMessure()测量自身的话还要测量
+ 孩子，onLayout()还要摆放孩子的位置。
+ - onFinishInflate实在xml加载组件完成后调用的。一般是在自定义ViewGroup的时候调用。
+ - ViewGroup的getChildAt(int position)，返回该组中指定位置的实图。
+ - onMeasure()的两个参数传的不单单是宽高的意思，传的是两个32位的二进制数。我们使用的是MeasureSpec--View中的静态内部类。
+ 这个类又getSize(),getMode(),getMessureSpec(int size, int mode),size占30位，mode占两位这样就返回了一个32位的二进制数。三种模式：EXACTLY精准的，AT_MOST最大值的，UNSPECIFIED未指定的。
+ - EXACTLY：精准的一半是在xml文件中指定match_parent或者指定具体100dp;
+ - AT_MOST：最大值的一半是xml中wrap_content;
+ - UNSPECIFIED：未指定的。
+- 2. 组合控件：利用系统控件，去组合一个新的控件；
+- 3. 拓展控件：继承系统已经提供的控件，加上新的功能和特性。
  
 
 

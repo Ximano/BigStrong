@@ -20,9 +20,11 @@ import android.widget.TextView;
 import com.hjq.toast.ToastUtils;
 import com.mili.R;
 import com.mili.activity.CityPickerActivity;
+import com.mili.activity.CustomViewActivity;
 import com.mili.activity.HandlerActivity;
 import com.mili.activity.KotlinActivity;
 import com.mili.activity.LifeCycleActivity;
+import com.mili.activity.NavigationActivity;
 import com.mili.activity.RichTextViewActivity;
 import com.mili.activity.RxActivity;
 import com.mili.activity.SortGridViewActivity;
@@ -120,6 +122,14 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
 
                         case 8:
                             JudgeUtils.label2Activity(getActivity(), LifeCycleActivity.class, position1);
+                            break;
+
+                        case 9:
+                            JudgeUtils.label2Activity(getActivity(), CustomViewActivity.class, position1);
+                            break;
+
+                        case 10:
+                            JudgeUtils.label2Activity(getActivity(), NavigationActivity.class, position1);
                             break;
 
                         default:
