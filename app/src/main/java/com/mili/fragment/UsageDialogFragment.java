@@ -1,6 +1,5 @@
 package com.mili.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -24,6 +23,7 @@ import com.mili.activity.CustomViewActivity;
 import com.mili.activity.HandlerActivity;
 import com.mili.activity.KotlinActivity;
 import com.mili.activity.LifeCycleActivity;
+import com.mili.activity.LoadingViewActivity;
 import com.mili.activity.NavigationActivity;
 import com.mili.activity.RichTextViewActivity;
 import com.mili.activity.RxActivity;
@@ -130,6 +130,10 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
 
                         case 10:
                             JudgeUtils.label2Activity(getActivity(), NavigationActivity.class, position1);
+                            break;
+
+                        case 11:
+                            JudgeUtils.label2Activity(getActivity(), LoadingViewActivity.class, position1);
                             break;
 
                         default:

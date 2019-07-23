@@ -44,4 +44,7 @@
     <color name="label_color688">#8867CCB7</color>
     <color name="label_color7">#F6BC7E</color>
     <color name="label_color788">#88F6BC7E</color>
+
+    <color name="start_color_n">#E669349F</color>
+    <color name="end_color_n">#E6D73473</color>
 </resources>
