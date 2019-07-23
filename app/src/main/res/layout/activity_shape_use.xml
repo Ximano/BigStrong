@@ -98,5 +98,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_circle" />
 
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ripple">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/rbLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/like_selector"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_horizontal"
+            android:text="喜爱"
+            android:textColor="@color/title_black"
+            android:textSize="@dimen/sp_15" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/rbUnLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/like_selector"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_horizontal"
+            android:text="不爱"
+            android:textColor="@color/title_black"
+            android:textSize="@dimen/sp_15" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </RadioGroup>
+
 
 </android.support.constraint.ConstraintLayout>
