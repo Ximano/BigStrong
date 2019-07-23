@@ -27,6 +27,7 @@ import com.mili.activity.LoadingViewActivity;
 import com.mili.activity.NavigationActivity;
 import com.mili.activity.RichTextViewActivity;
 import com.mili.activity.RxActivity;
+import com.mili.activity.ShapeActivity;
 import com.mili.activity.SortGridViewActivity;
 import com.mili.anim.CircularRevealAnim;
 import com.mili.app.Constants;
@@ -134,6 +135,10 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
 
                         case 11:
                             JudgeUtils.label2Activity(getActivity(), LoadingViewActivity.class, position1);
+                            break;
+
+                        case 12:
+                            JudgeUtils.label2Activity(getActivity(), ShapeActivity.class, position1);
                             break;
 
                         default:

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_hori"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/shape_hori_gradient"
+        android:gravity="center"
+        android:text="水平渐变"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_verti"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_verti_gradient"
+        android:gravity="center"
+        android:text="竖直渐变"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hori" />
+
+    <TextView
+        android:id="@+id/tv_border"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/shape_border"
+        android:gravity="center"
+        android:text="边框线"
+        android:textColor="@color/title_black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_verti" />
+
+
+    <TextView
+        android:id="@+id/tv_circle_abs"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/shape_circle_abs"
+        android:gravity="center"
+        android:text="圆角指定尺寸"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_border" />
+
+    <TextView
+        android:id="@+id/tv_circle"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/shape_circle"
+        android:gravity="center"
+        android:text="圆形"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_circle_abs" />
+
+    <Button
+        android:id="@+id/tv_ripple"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/click_selector_circle"
+        android:gravity="center"
+        android:text="点击"
+        android:textColor="@color/title_black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_circle" />
+
+
+</android.support.constraint.ConstraintLayout>
