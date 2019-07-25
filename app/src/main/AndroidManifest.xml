@@ -47,6 +47,8 @@
         <activity android:name=".activity.NavigationActivity" />
         <activity android:name=".activity.LoadingViewActivity" />
         <activity android:name=".activity.ShapeActivity" />
+        <activity android:name=".activity.AgentWebActivity" />
+        <activity android:name=".activity.GlideActivity" />
     </application>
 
 </manifest>

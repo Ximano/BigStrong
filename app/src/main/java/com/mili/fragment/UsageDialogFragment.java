@@ -18,8 +18,10 @@ import android.widget.TextView;
 
 import com.hjq.toast.ToastUtils;
 import com.mili.R;
+import com.mili.activity.AgentWebActivity;
 import com.mili.activity.CityPickerActivity;
 import com.mili.activity.CustomViewActivity;
+import com.mili.activity.GlideActivity;
 import com.mili.activity.HandlerActivity;
 import com.mili.activity.KotlinActivity;
 import com.mili.activity.LifeCycleActivity;
@@ -139,6 +141,14 @@ public class UsageDialogFragment extends BaseDialogFragment implements CircularR
 
                         case 12:
                             JudgeUtils.label2Activity(getActivity(), ShapeActivity.class, position1);
+                            break;
+
+                        case 13:
+                            JudgeUtils.label2Activity(getActivity(), AgentWebActivity.class, position1);
+                            break;
+
+                        case 14:
+                            JudgeUtils.label2Activity(getActivity(), GlideActivity.class, position1);
                             break;
 
                         default:

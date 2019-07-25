@@ -38,7 +38,9 @@ public class Constants {
             R.drawable.item_selector2,
             R.drawable.item_selector3,
             R.drawable.item_selector4,
-            R.drawable.item_selector4
+            R.drawable.item_selector4,
+            R.drawable.item_selector5,
+            R.drawable.item_selector6
     };
 
     /**
@@ -57,6 +59,8 @@ public class Constants {
             "CustomView",
             "navigation",
             "LoadingView",
-            "Shape Use"
+            "Shape Use",
+            "AgentWeb",
+            "Glide"
     };
 }
